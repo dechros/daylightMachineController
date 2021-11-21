@@ -20,14 +20,49 @@ namespace DayLightMachineController.View
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool HamburgerToggle;
+
         public MainWindow()
         {
+            HamburgerToggle = false;
             InitializeComponent();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            /* deneme */
+
+        }
+
+        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (HamburgerToggle == false)
+            {
+                HamburgerToggle = true;
+                Task.Run(() => HamburgerOpen());
+            }
+            else if (HamburgerToggle == true)
+            {
+                HamburgerToggle = false;
+                Task.Run(() => HamburgerClose());
+            }
+        }
+
+        private void HamburgerOpen()
+        {
+            for (int i = 100; i <= 500; i++)
+            {
+                LeftMenu.Dispatcher.Invoke(new Action(() => LeftMenu.Width = i));
+                long j = 0;
+            }
+        }
+
+        private void HamburgerClose()
+        {
+            for (int i = 500; i >= 100; i--)
+            {
+                LeftMenu.Dispatcher.Invoke(new Action(() => LeftMenu.Width = i));
+                long j = 0;
+            }
         }
     }
 }

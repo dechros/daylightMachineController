@@ -16,11 +16,11 @@ namespace DayLightMachineController
     {
         private void Main(object sender, StartupEventArgs e)
         {
-            SplashWindow splashWindow = new SplashWindow();
-            splashWindow.Show();
+            //SplashWindow splashWindow = new SplashWindow();
+            //splashWindow.Show();
 
-            //MainWindow mainWindow = new MainWindow();
-            //mainWindow.Show();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
         }
     }
 }
