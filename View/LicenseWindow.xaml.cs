@@ -18,7 +18,7 @@ namespace DayLightMachineController.View
 {
     /// <summary>
     /// Interaction logic for LicenseWindow.xaml
-    /// </summary> sa
+    /// </summary>
     public partial class LicenseWindow : Window
     {
         private LicenseHandler licenseHandler = new LicenseHandler();

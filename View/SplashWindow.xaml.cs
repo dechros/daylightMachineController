@@ -25,6 +25,7 @@ namespace DayLightMachineController.View
         public string deviceId;
 
         private LicenseHandler licenseHandler;
+        private LicenseWindow licenseWindow;
         private MainWindow mainWindow;
         public SplashWindow()
         {
@@ -53,8 +54,8 @@ namespace DayLightMachineController.View
             {
                 Dispatcher.Invoke(new Action(() => licenseStatusLabel.Content = "License Check Failed"));
                 await Task.Delay(3000);
-                LicenseWindow licenseWindow = new LicenseWindow(GetDeviceId());
-                licenseWindow.Show();
+                Dispatcher.Invoke(new Action(() => licenseWindow = new LicenseWindow(GetDeviceId())));
+                Dispatcher.Invoke(new Action(() => licenseWindow.Show()));
             }
             Dispatcher.Invoke(new Action(() => Close()));
         }
