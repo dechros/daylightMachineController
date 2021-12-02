@@ -42,19 +42,19 @@ namespace DayLightMachineController.View
 
         public async Task CheckLicenseAsync()
         {
-            await Task.Delay(2000);
+            await Task.Delay(200);
             if (licenseHandler.CheckExistingLicense(deviceId) == true)
             {
                 Dispatcher.Invoke(new Action(() => licenseStatusLabel.Content = "Machine ID: " + deviceId.ToString() + " Licensed"));
-                await Task.Delay(3000);
+                await Task.Delay(300);
                 Dispatcher.Invoke(new Action(() => mainWindow = new MainWindow()));
                 Dispatcher.Invoke(new Action(() => mainWindow.Show()));
             }
             else
             {
                 Dispatcher.Invoke(new Action(() => licenseStatusLabel.Content = "License Check Failed"));
-                await Task.Delay(3000);
-                Dispatcher.Invoke(new Action(() => licenseWindow = new LicenseWindow(GetDeviceId())));
+                await Task.Delay(300);
+                Dispatcher.Invoke(new Action(() => licenseWindow = new LicenseWindow(deviceId)));
                 Dispatcher.Invoke(new Action(() => licenseWindow.Show()));
             }
             Dispatcher.Invoke(new Action(() => Close()));

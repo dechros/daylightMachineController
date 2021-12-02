@@ -24,7 +24,8 @@ namespace DayLightMachineController.Utility
                 int birler = Convert.ToInt32(license[license.Length - i - 1]) - 48;
                 int onlar = Convert.ToInt32(license[license.Length - i - 2]) - 48;
                 onlar = onlar * 10;
-                int decoded = (birler + onlar) / 4 - 11;
+
+                double decoded = (birler + onlar) / 4f - 11f;
                 decodedId += decoded.ToString();
             }
             return decodedId == machineId;
@@ -34,6 +35,10 @@ namespace DayLightMachineController.Utility
         {
             string txtLicense = fileHandler.ReadLicenseFromTxt();
             return DecodeLicense(txtLicense, deviceId);
+        }
+        public bool WriteLicense(string license)
+        {
+            return fileHandler.WriteLicenseToTxt(license);
         }
     }
 }
