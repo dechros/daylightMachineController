@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Net;
+using System.Net.Sockets;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -49,20 +52,18 @@ namespace DayLightMachineController.View
 
         private void HamburgerOpen()
         {
-            for (int i = 100; i <= 500; i++)
+            for (int i = 110; i <= 300; i++)
             {
                 LeftMenu.Dispatcher.Invoke(new Action(() => LeftMenu.Width = i));
-                long j = 0;
             }
         }
 
         private void HamburgerClose()
         {
-            for (int i = 500; i >= 100; i--)
+            for (int i = 300; i >= 110; i--)
             {
                 LeftMenu.Dispatcher.Invoke(new Action(() => LeftMenu.Width = i));
-                long j = 0;
             }
-        }
+        }       
     }
 }
