@@ -78,12 +78,61 @@
     <Compile Include="View\LicenseWindow.xaml.cs">
       <DependentUpon>LicenseWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\MainWindowPages\ConnectionPage.xaml.cs">
+      <DependentUpon>ConnectionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindowPages\ControlPage.xaml.cs">
+      <DependentUpon>ControlPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindowPages\DetailsPage.xaml.cs">
+      <DependentUpon>DetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindowPages\FavoritesPage.xaml.cs">
+      <DependentUpon>FavoritesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindowPages\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindowPages\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindowPages\UpdatePage.xaml.cs">
+      <DependentUpon>UpdatePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SplashWindow.xaml.cs">
       <DependentUpon>SplashWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="View\LicenseWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\MainWindowPages\ConnectionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindowPages\ControlPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindowPages\DetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindowPages\FavoritesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindowPages\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindowPages\SettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindowPages\UpdatePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SplashWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

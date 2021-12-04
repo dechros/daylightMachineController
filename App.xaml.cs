@@ -18,9 +18,6 @@ namespace DayLightMachineController
         {
             SplashWindow splashWindow = new SplashWindow();
             splashWindow.Show();
-
-            //MainWindow mainWindow = new MainWindow();
-            //mainWindow.Show();
         }
     }
 }

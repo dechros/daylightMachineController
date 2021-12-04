@@ -1,0 +1,17 @@
+﻿<Page x:Class="DayLightMachineController.View.MainWindowPages.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DayLightMachineController.View.MainWindowPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1170"
+      Title="SettingsPage">
+    <Grid Background="#383543">
+        <Label Content="Settings Page"
+               Foreground="White"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
+               FontSize="100"/>
+    </Grid>
+</Page>
