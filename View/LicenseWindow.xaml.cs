@@ -22,6 +22,7 @@ namespace DayLightMachineController.View
     public partial class LicenseWindow : Window
     {
         private LicenseHandler licenseHandler = new LicenseHandler();
+        private MainWindow mainWindow;
         private string machineId;
         public LicenseWindow(string machineId)
         {
@@ -59,6 +60,7 @@ namespace DayLightMachineController.View
 
         private void CheckButton_Click(object sender, RoutedEventArgs e)
         {
+
             machineIdTextBox.Text = machineId;
             bool encryptionTest = licenseHandler.DecodeLicense(licenseTextBox.Text, machineId);
             if (encryptionTest)
@@ -66,6 +68,7 @@ namespace DayLightMachineController.View
                 if (licenseHandler.WriteLicense(licenseTextBox.Text))
                 {
                     messageLabel.Content = "License Check Succeeded";
+                    Task.Run(() => CheckLicense());
                 }
                 else
                 {
@@ -76,6 +79,16 @@ namespace DayLightMachineController.View
             {
                 messageLabel.Content = "Error Checking License";
             }
+            
+        }
+
+        private async Task CheckLicense()
+        {
+            await Task.Delay(300);
+            Dispatcher.Invoke(new Action(() => mainWindow = new MainWindow()));
+            Dispatcher.Invoke(new Action(() => mainWindow.Show()));
+            Dispatcher.Invoke(new Action(() => Close()));
+                
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
