@@ -141,6 +141,7 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Resource Include="Resources\closeIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -184,10 +185,12 @@
     <Resource Include="Resources\starButton.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+=======
     <Resource Include="Resources\closeIcon.png" />
     <Resource Include="Resources\licenseIcon.png" />
     <Resource Include="Resources\logoWhite.png" />
     <Resource Include="Resources\machineIdICon.png" />
+>>>>>>> DLP-3
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

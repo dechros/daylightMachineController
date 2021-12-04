@@ -22,33 +22,13 @@ namespace DayLightMachineController.View
     public partial class LicenseWindow : Window
     {
         private LicenseHandler licenseHandler = new LicenseHandler();
+        private MainWindow mainWindow;
         private string machineId;
-        private const int licenseSize = 19;
         public LicenseWindow(string machineId)
         {
             InitializeComponent();
             this.machineId = machineId;
-        }
-
-        private void licenseTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            int textLenght = licenseTextBox.Text.Length;
-            if (textLenght == licenseSize)
-            {
-                checkButton.IsEnabled = true;
-            }
-            else
-            {
-                checkButton.IsEnabled = false;
-                if (textLenght % 4 == 0 && textLenght != 19)
-                {
-                    licenseTextBox.Text += "-";
-                }
-                else
-                {
-
-                }
-            }
+            machineIdTextBox.Text = machineId;
         }
 
         private void licenseTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -68,9 +48,9 @@ namespace DayLightMachineController.View
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter && checkButton.IsEnabled == true)
+            if (e.Key == Key.Enter && CheckButton.IsEnabled == true)
             {
-                checkButton_Click(sender, e);
+                CheckButton_Click(sender, e);
             }
             else if (e.Key == Key.Escape)
             {
@@ -78,18 +58,37 @@ namespace DayLightMachineController.View
             }
         }
 
-        private void checkButton_Click(object sender, RoutedEventArgs e)
+        private void CheckButton_Click(object sender, RoutedEventArgs e)
         {
+
             machineIdTextBox.Text = machineId;
             bool encryptionTest = licenseHandler.DecodeLicense(licenseTextBox.Text, machineId);
-            if (encryptionTest == true)
+            if (encryptionTest)
             {
-                messageLabel.Content = "License Checked Successfuly";
+                if (licenseHandler.WriteLicense(licenseTextBox.Text))
+                {
+                    messageLabel.Content = "License Check Succeeded";
+                    Task.Run(() => CheckLicense());
+                }
+                else
+                {
+                    messageLabel.Content = "Can Not Save The License";
+                }
             }
-            else if (encryptionTest == false)
+            else if (!encryptionTest)
             {
                 messageLabel.Content = "Error Checking License";
             }
+            
+        }
+
+        private async Task CheckLicense()
+        {
+            await Task.Delay(300);
+            Dispatcher.Invoke(new Action(() => mainWindow = new MainWindow()));
+            Dispatcher.Invoke(new Action(() => mainWindow.Show()));
+            Dispatcher.Invoke(new Action(() => Close()));
+                
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

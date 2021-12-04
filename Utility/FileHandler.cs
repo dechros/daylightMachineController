@@ -14,9 +14,21 @@ namespace DayLightMachineController.Utility
             licenseFileDir = @"../License/License.txt";
         }
 
-        public void WriteLicenseToTxt(byte[] encrypted)
+        public bool WriteLicenseToTxt(string license)
         {
-            File.WriteAllBytes(licenseFileDir, encrypted);
+            try
+            {
+                if (File.Exists(licenseFileDir))
+                {
+                    File.WriteAllText(licenseFileDir, string.Empty);
+                }
+                File.AppendAllText(licenseFileDir, license);
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
         public string ReadLicenseFromTxt()
