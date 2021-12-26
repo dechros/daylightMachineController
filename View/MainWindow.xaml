@@ -62,7 +62,8 @@
                     Margin="0 0 0 0">
                 <StackPanel HorizontalAlignment="Left"
                             Orientation="Horizontal">
-                    <Image Margin="10 0 0 0"
+                    <Image x:Name="HomeButtonIcon"
+                           Margin="10 0 0 0"
                            Height="Auto"
                            Width="70"
                            VerticalAlignment="Stretch"
@@ -92,7 +93,8 @@
                     Margin="0 0 0 0">
                 <StackPanel HorizontalAlignment="Left"
                             Orientation="Horizontal">
-                    <Image Margin="10 0 0 0"
+                    <Image Name="RoundButtonIcon"
+                           Margin="10 0 0 0"
                            Height="Auto"
                            Width="70"
                            VerticalAlignment="Center"
@@ -122,7 +124,8 @@
                     Margin="0 0 0 0">
                 <StackPanel HorizontalAlignment="Left"
                             Orientation="Horizontal">
-                    <Image Margin="10 0 0 0"
+                    <Image x:Name="ConnectionButtonIcon"
+                           Margin="10 0 0 0"
                            Height="Auto"
                            Width="70"
                        VerticalAlignment="Center"
@@ -152,7 +155,8 @@
                     Margin="0 0 0 0">
                 <StackPanel HorizontalAlignment="Left"
                             Orientation="Horizontal">
-                    <Image Margin="10 0 0 0"
+                    <Image x:Name="StarButtonIcon"
+                           Margin="10 0 0 0"
                            Height="Auto"
                            Width="70"
                        VerticalAlignment="Center"
@@ -182,7 +186,8 @@
                     Margin="0 0 0 0">
                 <StackPanel HorizontalAlignment="Left"
                             Orientation="Horizontal">
-                    <Image Margin="15 0 0 0"
+                    <Image x:Name="DocumentButtonIcon"
+                           Margin="15 0 0 0"
                            Height="Auto"
                            Width="60"
                        VerticalAlignment="Center"
@@ -213,7 +218,8 @@
                     Margin="0 0 0 0">
                 <StackPanel HorizontalAlignment="Left"
                             Orientation="Horizontal">
-                    <Image Margin="15 0 0 0"
+                    <Image x:Name="ArrowButtonIcon"
+                           Margin="15 0 0 0"
                            Height="Auto"
                            Width="60"
                        VerticalAlignment="Center"
@@ -245,7 +251,8 @@
                     Margin="0 0 0 0">
                 <StackPanel HorizontalAlignment="Left"
                             Orientation="Horizontal">
-                    <Image Margin="10 0 0 0"
+                    <Image x:Name="SettingsButtonIcon"
+                           Margin="10 0 0 0"
                            Height="Auto"
                            Width="70"
                        VerticalAlignment="Center"

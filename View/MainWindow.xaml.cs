@@ -82,37 +82,62 @@ namespace DayLightMachineController.View
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
+            UnclickAllButtons();
+            HomeButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/homeButtonClicked.png"));
             MainFrame.Navigate(MainWindowHomePage);
         }
 
         private void RoundButton_Click(object sender, RoutedEventArgs e)
         {
+            UnclickAllButtons();
+            RoundButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/roundButtonClicked.png"));
             MainFrame.Navigate(MainWindowControlPage);
         }
 
         private void ConnectionButton_Click(object sender, RoutedEventArgs e)
         {
+            UnclickAllButtons();
+            ConnectionButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/connectionButtonClicked.png"));
             MainFrame.Navigate(MainWindowConnectionPage);
         }
 
         private void StarButton_Click(object sender, RoutedEventArgs e)
         {
+            UnclickAllButtons();
+            StarButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/starButtonClicked.png"));
             MainFrame.Navigate(MainWindowFavoritesPage);
         }
 
         private void DocumentButton_Click(object sender, RoutedEventArgs e)
         {
+            UnclickAllButtons();
+            DocumentButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/documentButtonClicked.png"));
             MainFrame.Navigate(MainWindowDetailsPage);
         }
 
         private void ArrowButton_Click(object sender, RoutedEventArgs e)
         {
+            UnclickAllButtons();
+            ArrowButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/arrowButtonClicked.png"));
             MainFrame.Navigate(MainWindowUpdatePage);
         }
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
+            UnclickAllButtons();
+            SettingsButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/settingsButtonClicked.png"));
             MainFrame.Navigate(MainWindowSettingsPage);
+        }
+
+        private void UnclickAllButtons()
+        {
+            HomeButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/homeButton.png"));
+            RoundButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/roundButton.png"));
+            ConnectionButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/connectionButton.png"));
+            StarButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/starButton.png"));
+            DocumentButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/documentButton.png"));
+            ArrowButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/arrowButton.png"));
+            SettingsButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/settingsButton.png"));
         }
     }
 }
