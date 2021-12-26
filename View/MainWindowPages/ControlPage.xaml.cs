@@ -26,16 +26,49 @@ namespace DayLightMachineController.View.MainWindowPages
             InitializeComponent();
         }
 
-        private void RightTrackTouchBall_MouseDown(object sender, MouseButtonEventArgs e)
+        private void RightTrackTouchBallMove(object sender, TouchEventArgs e)
         {
-            Point position = e.GetPosition(this);
-            RightTrackTouchBall.Margin = new Thickness(0, -50, 0, 0);
-            Console.WriteLine("Mouse captured.");
+            TouchPoint position = e.GetTouchPoint(this);
+            double newMarginForBall = (position.Position.Y - 605) * 2;
 
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (newMarginForBall < -240)
             {
-
+                newMarginForBall = -240;
             }
+            else if (newMarginForBall > 240)
+            {
+                newMarginForBall = 240;
+            }
+            RightTrackTouchBall.Margin = new Thickness(0, newMarginForBall, 0, 0);
+        }
+
+        private void RightTrackTouchBallReset(object sender, TouchEventArgs e)
+        {
+            RightTrackTouchBall.Margin = new Thickness(0, 0, 0, 0);
+        }
+
+       
+
+        private void LeftTrackTouchBallReset(object sender, TouchEventArgs e)
+        {
+            LeftTrackTouchBall.Margin = new Thickness(0, 0, 0, 0);
+        }
+
+        private void LeftTrackTouchBallMove(object sender, TouchEventArgs e)
+        {
+            TouchPoint position = e.GetTouchPoint(this);
+
+            double newMarginForBall = (position.Position.Y - 605) * 2;
+
+            if (newMarginForBall < -240)
+            {
+                newMarginForBall = -240;
+            }
+            else if (newMarginForBall > 240)
+            {
+                newMarginForBall = 240;
+            }
+            LeftTrackTouchBall.Margin = new Thickness(0, newMarginForBall, 0, 0);
         }
     }
 }

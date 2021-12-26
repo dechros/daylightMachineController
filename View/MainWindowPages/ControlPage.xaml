@@ -62,16 +62,22 @@
                                Margin="0 0 0 0"/>
                     </Grid>
                     <Grid Grid.Row="1">
-                        <Image 
-                           Margin="20"
-                           Height="Auto"
-                           Width="Auto"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           Source="pack://application:,,,/Resources/trackControlBg.png"/>
+                        <Image x:Name="LeftTrackPng"
+                               TouchMove="LeftTrackTouchBallMove"
+                               TouchDown="LeftTrackTouchBallMove"
+                               Margin="20"
+                               Height="Auto"
+                               Width="Auto"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Source="pack://application:,,,/Resources/trackControlBg.png"/>
                         <Image x:Name="LeftTrackTouchBall"
+                               TouchMove="LeftTrackTouchBallMove"
+                               TouchDown="LeftTrackTouchBallMove"
+                               TouchLeave="LeftTrackTouchBallReset"
+                               TouchUp="LeftTrackTouchBallReset"
                                Margin="0"
-                               Height="70"
+                               Height="90"
                                Width="Auto"
                                VerticalAlignment="Center"
                                HorizontalAlignment="Center"
@@ -155,17 +161,22 @@
                                Margin="0 0 0 0"/>
                     </Grid>
                     <Grid Grid.Row="1">
-                        <Image 
-                           Margin="20"
-                           Height="Auto"
-                           Width="Auto"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           Source="pack://application:,,,/Resources/trackControlBg.png"/>
+                        <Image x:Name="RightTrackPng"
+                               TouchMove="RightTrackTouchBallMove"
+                               TouchDown="RightTrackTouchBallMove"
+                               Margin="20"
+                               Height="Auto"
+                               Width="Auto"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Source="pack://application:,,,/Resources/trackControlBg.png"/>
                         <Image x:Name="RightTrackTouchBall"
-                               MouseDown="RightTrackTouchBall_MouseDown"
+                               TouchMove="RightTrackTouchBallMove"
+                               TouchDown="RightTrackTouchBallMove"
+                               TouchLeave="RightTrackTouchBallReset"
+                               TouchUp="RightTrackTouchBallReset"
                                Margin="0"
-                               Height="70"
+                               Height="90"
                                Width="Auto"
                                VerticalAlignment="Center"
                                HorizontalAlignment="Center"
