@@ -55,11 +55,13 @@ namespace DayLightMachineController.View
             if (HamburgerToggle == false)
             {
                 HamburgerToggle = true;
+                MainFrameOverlayGrid.Visibility = Visibility.Visible;
                 Task.Run(() => HamburgerOpen());
             }
             else if (HamburgerToggle == true)
             {
                 HamburgerToggle = false;
+                MainFrameOverlayGrid.Visibility = Visibility.Collapsed;
                 Task.Run(() => HamburgerClose());
             }
         }

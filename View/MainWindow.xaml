@@ -278,10 +278,17 @@
               Width="Auto"
               VerticalAlignment="Stretch"
               HorizontalAlignment="Stretch">
+            
             <Frame x:Name="MainFrame"
                NavigationUIVisibility="Hidden"
                HorizontalAlignment="Stretch"
                VerticalAlignment="Stretch"/>
+            <Grid Name="MainFrameOverlayGrid"
+                  Visibility="Collapsed">
+                <Grid.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.7" />
+                </Grid.Background>
+            </Grid>
         </Grid>
     </Grid>
 </Window>
