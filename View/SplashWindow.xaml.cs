@@ -63,13 +63,11 @@ namespace DayLightMachineController.View
         public string GetDeviceId()
         {
             string deviceId = "";
-            string[] deviceIdSubStrings = new string[3];
+            string[] deviceIdSubStrings = new string[2];
             deviceIdSubStrings[0] = StringHelper.RemoveNonNumbers(new DeviceIdBuilder().AddMachineName().ToString());
-            deviceIdSubStrings[0] = deviceIdSubStrings[0].Remove(2, deviceIdSubStrings[0].Length - 2);
-            deviceIdSubStrings[1] = StringHelper.RemoveNonNumbers(new DeviceIdBuilder().AddMacAddress().ToString());
-            deviceIdSubStrings[1] = deviceIdSubStrings[1].Remove(4, deviceIdSubStrings[1].Length - 4);
-            deviceIdSubStrings[2] = StringHelper.RemoveNonNumbers(new DeviceIdBuilder().AddUserName().ToString());
-            deviceIdSubStrings[2] = deviceIdSubStrings[2].Remove(2, deviceIdSubStrings[2].Length - 2);
+            deviceIdSubStrings[0] = deviceIdSubStrings[0].Remove(2, deviceIdSubStrings[0].Length - 4);
+            deviceIdSubStrings[1] = StringHelper.RemoveNonNumbers(new DeviceIdBuilder().AddUserName().ToString());
+            deviceIdSubStrings[1] = deviceIdSubStrings[1].Remove(2, deviceIdSubStrings[1].Length - 4);
             for (int i = 0; i < deviceIdSubStrings.Length; i++)
             {
                 deviceId += deviceIdSubStrings[i];
