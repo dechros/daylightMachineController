@@ -16,6 +16,23 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <Grid x:Name="mainGrid"
+              Background="#383543"
+              Grid.Column="1"
+              Width="Auto"
+              VerticalAlignment="Stretch"
+              HorizontalAlignment="Stretch">
+            <Frame x:Name="MainFrame"
+               NavigationUIVisibility="Hidden"
+               HorizontalAlignment="Stretch"
+               VerticalAlignment="Stretch"/>
+            <Grid Name="MainFrameOverlayGrid"
+                  Visibility="Collapsed">
+                <Grid.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.7" />
+                </Grid.Background>
+            </Grid>
+        </Grid>
         <Grid x:Name="LeftMenu"
               Background="#080F1F"
               Width="90"
@@ -271,24 +288,6 @@
                        Margin="13 0 105 0"/>
                 </StackPanel>
             </Button>
-        </Grid>
-        <Grid x:Name="mainGrid"
-              Background="#383543"
-              Grid.Column="1"
-              Width="Auto"
-              VerticalAlignment="Stretch"
-              HorizontalAlignment="Stretch">
-            
-            <Frame x:Name="MainFrame"
-               NavigationUIVisibility="Hidden"
-               HorizontalAlignment="Stretch"
-               VerticalAlignment="Stretch"/>
-            <Grid Name="MainFrameOverlayGrid"
-                  Visibility="Collapsed">
-                <Grid.Background>
-                    <SolidColorBrush Color="Black" Opacity="0.7" />
-                </Grid.Background>
-            </Grid>
         </Grid>
     </Grid>
 </Window>

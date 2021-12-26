@@ -47,6 +47,8 @@ namespace DayLightMachineController.View
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            UnclickAllButtons();
+            HomeButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/homeButtonClicked.png"));
             MainFrame.Navigate(MainWindowHomePage);
         }
 

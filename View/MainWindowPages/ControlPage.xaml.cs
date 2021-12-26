@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Forms;
 
 namespace DayLightMachineController.View.MainWindowPages
 {
@@ -23,6 +24,18 @@ namespace DayLightMachineController.View.MainWindowPages
         public ControlPage()
         {
             InitializeComponent();
+        }
+
+        private void RightTrackTouchBall_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Point position = e.GetPosition(this);
+            RightTrackTouchBall.Margin = new Thickness(0, -50, 0, 0);
+            Console.WriteLine("Mouse captured.");
+
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+
+            }
         }
     }
 }
