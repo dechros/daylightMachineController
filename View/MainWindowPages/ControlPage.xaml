@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:DayLightMachineController.View.MainWindowPages"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1190"
-      Title="ControlPage">
+      Title="ControlPage"
+      Loaded="Page_Loaded">
     <Grid Background="#383543">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -18,7 +19,7 @@
               Margin="10 10 0 10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1.3*"/>
             </Grid.RowDefinitions>
             <Border Grid.Row="0"
                     BorderBrush="#080F1F"
@@ -27,6 +28,227 @@
                     Margin="10">
                 <Grid Background="#080F1F"
                       Margin="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0"
+                               Margin="0"
+                               Height="40"
+                               Width="Auto"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Source="pack://application:,,,/Resources/informationLogo.png"/>
+                        <Label Grid.Column="1"
+                               FontSize="25" 
+                               FontFamily="Calibri" 
+                               Foreground="White" 
+                               Content="Information"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Left"
+                               Margin="0 0 0 0"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0"
+                                   Stretch="Fill"
+                                   Margin="5"
+                                   Height="180"
+                                   Width="15"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/graphicBackgroundLogo.png"/>
+                            <Image x:Name="BatteryLevel"
+                                   Stretch="Fill"
+                                   Grid.Row="0"
+                                   Margin="5"
+                                   Height="150"
+                                   Width="15"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment ="Center"
+                                   Source="pack://application:,,,/Resources/graphicLogo.png"/>
+                            <Image x:Name="BatteryLogo"
+                                   Grid.Row="1"
+                                   Margin="0"
+                                   Height="30"
+                                   Width="30"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/batteryLogo.png"/>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0"
+                                   Stretch="Fill"
+                                   Margin="5"
+                                   Height="180"
+                                   Width="15"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/graphicBackgroundLogo.png"/>
+                            <Image x:Name="FuelLevel"
+                                   Stretch="Fill"
+                                   Grid.Row="0"
+                                   Margin="5"
+                                   Height="150"
+                                   Width="15"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment ="Center"
+                                   Source="pack://application:,,,/Resources/graphicLogo.png"/>
+                            <Image Name="FuelLogo"
+                                   Grid.Row="1"
+                                   Margin="0"
+                                   Height="30"
+                                   Width="30"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/fuelLogo.png"/>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0"
+                                   Stretch="Fill"
+                                   Margin="5"
+                                   Height="180"
+                                   Width="15"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/graphicBackgroundLogo.png"/>
+                            <Image x:Name="OilLevel"
+                                   Stretch="Fill"
+                                   Grid.Row="0"
+                                   Margin="5"
+                                   Height="150"
+                                   Width="15"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment ="Center"
+                                   Source="pack://application:,,,/Resources/graphicLogo.png"/>
+                            <Image Name="OilLogo"
+                                   Grid.Row="1"
+                                   Margin="0"
+                                   Height="30"
+                                   Width="30"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/oilLogo.png"/>
+                        </Grid>
+                        <Grid Grid.Column="3">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0"
+                                   Stretch="Fill"
+                                   Margin="5"
+                                   Height="180"
+                                   Width="15"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/graphicBackgroundLogo.png"/>
+                            <Image x:Name="TempLevel"
+                                   Stretch="Fill"
+                                   Grid.Row="0"
+                                   Margin="5"
+                                   Height="150"
+                                   Width="15"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment ="Center"
+                                   Source="pack://application:,,,/Resources/graphicLogo.png"/>
+                            <Image Name="TemperatureLogo"
+                                   Grid.Row="1"
+                                   Margin="0"
+                                   Height="30"
+                                   Width="30"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/temperatureLogo.png"/>
+                        </Grid>
+                        <Grid Grid.Column="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0"
+                                   Stretch="Fill"
+                                   Margin="5"
+                                   Height="180"
+                                   Width="15"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/graphicBackgroundLogo.png"/>
+                            <Image x:Name="HydroTempLevel"
+                                   Stretch="Fill"
+                                   Grid.Row="0"
+                                   Margin="5"
+                                   Height="150"
+                                   Width="15"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment ="Center"
+                                   Source="pack://application:,,,/Resources/graphicLogo.png"/>
+                            <Image Name="HydraulicTempLogo"
+                                   Grid.Row="1"
+                                   Margin="0"
+                                   Height="30"
+                                   Width="30"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/hydraulicTempLogo.png"/>
+                        </Grid>
+                        <Grid Grid.Column="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0"
+                                   Stretch="Fill"
+                                   Margin="5"
+                                   Height="180"
+                                   Width="15"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/graphicBackgroundLogo.png"/>
+                            <Image x:Name="HydroLevel"
+                                   Stretch="Fill"
+                                   Grid.Row="0"
+                                   Margin="5"
+                                   Height="150"
+                                   Width="15"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment ="Center"
+                                   Source="pack://application:,,,/Resources/graphicLogo.png"/>
+                            <Image Name="HydraulicLevelLogo"
+                                   Grid.Row="1"
+                                   Margin="0"
+                                   Height="30"
+                                   Width="30"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/hydraulicLevelLogo.png"/>
+                        </Grid>
+                    </Grid>
                 </Grid>
             </Border>
             <Border Grid.Row="1"
@@ -37,7 +259,7 @@
                 <Grid Background="#080F1F"
                       Margin="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="70"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
@@ -46,12 +268,12 @@
                             <ColumnDefinition Width="3*"/>
                         </Grid.ColumnDefinitions>
                         <Image Grid.Column="0"
-                           Margin="0"
-                           Height="40"
-                           Width="Auto"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           Source="pack://application:,,,/Resources/trackControlIcon.png"/>
+                               Margin="0"
+                               Height="40"
+                               Width="Auto"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Source="pack://application:,,,/Resources/trackControlIcon.png"/>
                         <Label Grid.Column="1"
                                FontSize="25" 
                                FontFamily="Calibri" 
@@ -100,6 +322,80 @@
                     Margin="10">
                 <Grid Background="#080F1F"
                       Margin="0">
+                    <Image x:Name="ColorfulCirle"
+                           Margin="40"
+                           Height="Auto"
+                           Width="Auto"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Source="pack://application:,,,/Resources/throttleBack.png"/>
+                    <ItemsControl x:Name="imageItems"
+                                  VerticalAlignment="Center"
+                                  HorizontalAlignment="Center">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding}"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <Image x:Name="HollowCircle"
+                           Margin="20"
+                           MouseDown="ThrottleTouchBallMove"
+                           Height="Auto"
+                           Width="Auto"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Source="pack://application:,,,/Resources/throttleGaugeFront.png"/>
+                    <Image x:Name="ThrottleTouchBall"
+                           MouseMove="ThrottleTouchBallMove"
+                           MouseDown="ThrottleTouchBallMove"
+                           Height="90"
+                           Width="Auto"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Margin="0 -450 0 0"
+                           Source="pack://application:,,,/Resources/touchBall.png"/>
+                    <Label x:Name="RpmLabel"
+                           Content="0" 
+                           FontFamily="Calibri"
+                           FontSize="100"
+                           HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           Foreground="#54BFCC"
+                           HorizontalAlignment="Center" 
+                           Margin="0,-100,0,0" 
+                           VerticalAlignment="Center" 
+                           Height="Auto"
+                           Width="Auto"/>
+                    <Label FontSize="50" 
+                           FontFamily="Calibri" 
+                           Foreground="White" 
+                           HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           Content="RPM"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Margin="0 50 0 0"/>
+                    <Label x:Name="KmLabel"
+                           FontSize="25" 
+                           FontFamily="Calibri" 
+                           Foreground="Gray" 
+                           HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           Content="10000 KM"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Margin="0 150 0 0"/>
+                    <Label x:Name="HoursLabel"
+                           FontSize="25" 
+                           FontFamily="Calibri" 
+                           Foreground="Gray" 
+                           HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           Content="202 Hours"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Margin="0 200 0 0"/>
                 </Grid>
             </Border>
             <Border Grid.Row="1"
@@ -109,6 +405,129 @@
                     Margin="10">
                 <Grid Background="#080F1F"
                       Margin="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0"
+                              x:Name="EngineButton"
+                              MouseDown="Grid_MouseDown"
+                              Margin="5">
+                            <Image x:Name="EngineButtonBg"
+                                   Margin="0"
+                                   Height="Auto"
+                                   Width="Auto"
+                                   VerticalAlignment="Stretch"
+                                   HorizontalAlignment="Stretch"
+                                   Source="pack://application:,,,/Resources/generalButtonOff.png"/>
+                            <Label Name="EngineLabel"
+                                   Content="Engine"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center" 
+                                   FontSize="25" 
+                                   FontFamily="Calibri" 
+                                   Foreground="White" 
+                                   Width="Auto"
+                                   Height="Auto"
+                                   Margin="0"/>
+                        </Grid>
+                        <Grid Grid.Column="1"
+                              x:Name="LevelingButton"
+                              MouseDown="Grid_MouseDown"
+                              Margin="5">
+                            <Image x:Name="LevelingButtonBg"
+                                   Margin="0"
+                                   Height="Auto"
+                                   Width="Auto"
+                                   VerticalAlignment="Stretch"
+                                   HorizontalAlignment="Stretch"
+                                   Source="pack://application:,,,/Resources/generalButtonOff.png"/>
+                            <Label Name="LevelingLabel"
+                                   Content="Leveling"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center" 
+                                   FontSize="25" 
+                                   FontFamily="Calibri" 
+                                   Foreground="White" 
+                                   Width="Auto"
+                                   Height="Auto"
+                                   Margin="0"/>
+                        </Grid>
+
+                        <Grid Grid.Column="2"
+                              x:Name="HammerButton"
+                              MouseDown="Grid_MouseDown"
+                              Margin="5">
+                            <Image x:Name="HammerButtonBg"
+                                   Margin="0"
+                                   Height="Auto"
+                                   Width="Auto"
+                                   VerticalAlignment="Stretch"
+                                   HorizontalAlignment="Stretch"
+                                   Source="pack://application:,,,/Resources/generalButtonOff.png"/>
+                            <Label Name="HammerLabel"
+                                   Content="Hammer"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center" 
+                                   FontSize="25" 
+                                   FontFamily="Calibri" 
+                                   Foreground="White" 
+                                   Width="Auto"
+                                   Height="Auto"
+                                   Margin="0"/>
+                        </Grid>
+
+                        <Grid Grid.Column="3"
+                              x:Name="LightButton"
+                              MouseDown="Grid_MouseDown"
+                              Margin="5">
+                            <Image x:Name="LightButtonBg"
+                                   Margin="0"
+                                   Height="Auto"
+                                   Width="Auto"
+                                   VerticalAlignment="Stretch"
+                                   HorizontalAlignment="Stretch"
+                                   Source="pack://application:,,,/Resources/generalButtonOff.png"/>
+                            <Label Name="LightLabel"
+                                   Content="Light"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center" 
+                                   FontSize="25" 
+                                   FontFamily="Calibri" 
+                                   Foreground="White" 
+                                   Width="Auto"
+                                   Height="Auto"
+                                   Margin="0"/>
+                        </Grid>
+
+                        <Grid  Grid.Column="4"
+                               x:Name="CalibrateButton"
+                               MouseDown="Grid_MouseDown"
+                               Margin="5">
+                            <Image x:Name="CalibrateButtonBg"
+                                   Margin="0"
+                                   Height="Auto"
+                                   Width="Auto"
+                                   VerticalAlignment="Stretch"
+                                   HorizontalAlignment="Stretch"
+                                   Source="pack://application:,,,/Resources/generalButtonOff.png"/>
+                            <Label Name="CalibrateLabel"
+                                   Content="Calibrate"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center" 
+                                   FontSize="25" 
+                                   FontFamily="Calibri" 
+                                   Foreground="White" 
+                                   Width="Auto"
+                                   Height="Auto"
+                                   Margin="0"/>
+                        </Grid>
+                    </Grid>
                 </Grid>
             </Border>
         </Grid>
@@ -117,7 +536,7 @@
               Margin="0 10 10 10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1.3*"/>
             </Grid.RowDefinitions>
             <Border Grid.Row="0"
                     BorderBrush="#080F1F"
@@ -126,6 +545,227 @@
                     Margin="10">
                 <Grid Background="#080F1F"
                       Margin="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0"
+                               Margin="0"
+                               Height="40"
+                               Width="Auto"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Source="pack://application:,,,/Resources/onBoardLogo.png"/>
+                        <Label Grid.Column="1"
+                               FontSize="25" 
+                               FontFamily="Calibri" 
+                               Foreground="White" 
+                               Content="On Board"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Left"
+                               Margin="0 0 0 0"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0"
+                                   Stretch="Fill"
+                                   Margin="5"
+                                   Height="180"
+                                   Width="15"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/graphicBackgroundLogo.png"/>
+                            <Image x:Name="WiFiLevel"
+                                   Stretch="Fill"
+                                   Grid.Row="0"
+                                   Margin="0,0,14,5"
+                                   Height="150"
+                                   Width="15"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment ="Right"
+                                   Source="pack://application:,,,/Resources/graphicLogo.png"/>
+                            <Image Name="WiFiLogo"
+                                   Grid.Row="1"
+                                   Margin="0"
+                                   Height="30"
+                                   Width="30"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/wifiLogo.png"/>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0"
+                                   Stretch="Fill"
+                                   Margin="5"
+                                   Height="180"
+                                   Width="15"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/graphicBackgroundLogo.png"/>
+                            <Image x:Name="CellLevel"
+                                   Stretch="Fill"
+                                   Grid.Row="0"
+                                   Margin="5"
+                                   Height="150"
+                                   Width="15"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment ="Center"
+                                   Source="pack://application:,,,/Resources/graphicLogo.png"/>
+                            <Image Name="CellLogo"
+                                   Grid.Row="1"
+                                   Margin="0"
+                                   Height="30"
+                                   Width="30"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/cellLogo.png"/>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0"
+                                   Stretch="Fill"
+                                   Margin="5"
+                                   Height="180"
+                                   Width="15"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/graphicBackgroundLogo.png"/>
+                            <Image x:Name="UartLevel"
+                                   Stretch="Fill"
+                                   Grid.Row="0"
+                                   Margin="5"
+                                   Height="150"
+                                   Width="15"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment ="Center"
+                                   Source="pack://application:,,,/Resources/graphicLogo.png"/>
+                            <Image Name="UartLogo"
+                                   Grid.Row="1"
+                                   Margin="0"
+                                   Height="30"
+                                   Width="30"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/uartLogo.png"/>
+                        </Grid>
+                        <Grid Grid.Column="3">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0"
+                                   Stretch="Fill"
+                                   Margin="5"
+                                   Height="180"
+                                   Width="15"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/graphicBackgroundLogo.png"/>
+                            <Image x:Name="CanBusLevel"
+                                   Stretch="Fill"
+                                   Grid.Row="0"
+                                   Margin="5"
+                                   Height="150"
+                                   Width="15"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment ="Center"
+                                   Source="pack://application:,,,/Resources/graphicLogo.png"/>
+                            <Image Name="CanLogo"
+                                   Grid.Row="1"
+                                   Margin="0"
+                                   Height="30"
+                                   Width="30"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/canLogo.png"/>
+                        </Grid>
+                        <Grid Grid.Column="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0"
+                                   Stretch="Fill"
+                                   Margin="5"
+                                   Height="180"
+                                   Width="15"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/graphicBackgroundLogo.png"/>
+                            <Image x:Name="StorageLevel"
+                                   Stretch="Fill"
+                                   Grid.Row="0"
+                                   Margin="5"
+                                   Height="150"
+                                   Width="15"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment ="Center"
+                                   Source="pack://application:,,,/Resources/graphicLogo.png"/>
+                            <Image Name="StorageLogo"
+                                   Grid.Row="1"
+                                   Margin="0"
+                                   Height="30"
+                                   Width="30"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/storageLogo.png"/>
+                        </Grid>
+                        <Grid Grid.Column="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0"
+                                   Stretch="Fill"
+                                   Margin="5"
+                                   Height="180"
+                                   Width="15"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/graphicBackgroundLogo.png"/>
+                            <Image x:Name="DatabaseLevel"
+                                   Stretch="Fill"
+                                   Grid.Row="0"
+                                   Margin="5"
+                                   Height="150"
+                                   Width="15"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment ="Center"
+                                   Source="pack://application:,,,/Resources/graphicLogo.png"/>
+                            <Image Name="DatabaseLogo"
+                                   Grid.Row="1"
+                                   Margin="0"
+                                   Height="30"
+                                   Width="30"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/databaseLogo.png"/>
+                        </Grid>
+                    </Grid>
                 </Grid>
             </Border>
             <Border Grid.Row="1"
@@ -136,7 +776,7 @@
                 <Grid Background="#080F1F"
                       Margin="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="70"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">

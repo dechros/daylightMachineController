@@ -12,16 +12,12 @@
         ResizeMode="NoResize"
         Loaded="Window_Loaded">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <Grid x:Name="mainGrid"
               Background="#383543"
-              Grid.Column="1"
-              Width="Auto"
-              VerticalAlignment="Stretch"
-              HorizontalAlignment="Stretch">
+              Width="1190"
+              Height="800"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Right">
             <Frame x:Name="MainFrame"
                NavigationUIVisibility="Hidden"
                HorizontalAlignment="Stretch"
@@ -36,7 +32,6 @@
         <Grid x:Name="LeftMenu"
               Background="#080F1F"
               Width="90"
-              Grid.Column="0"
               VerticalAlignment="Stretch"
               HorizontalAlignment="Left">
             <Grid.RowDefinitions>
@@ -49,44 +44,32 @@
                 <RowDefinition Height="90"/>
                 <RowDefinition Height="90"/>
             </Grid.RowDefinitions>
-            <Button x:Name="HamburgerButton"
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Height="90"
-                    Width="90"
-                    Background="Transparent"
-                    BorderThickness="0"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Margin="0 0 0 0"
-                    Click="HamburgerButton_Click">
-                <Image Margin="0 0 0 0"
+
+            <Image x:Name="HamburgerButton"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   MouseDown="HamburgerButton_MouseDown"
+                   Margin="10 0 0 0"
+                   Height="Auto"
+                   Width="70"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Source="pack://application:,,,/Resources/hamburgerButton.png"/>
+
+            <StackPanel x:Name="HomeButton"
+                        MouseDown="HomeButton_MouseDown"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        HorizontalAlignment="Left"
+                        Orientation="Horizontal">
+                <Image x:Name="HomeButtonIcon"
+                       Margin="10 0 0 0"
                        Height="Auto"
                        Width="70"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       Source="pack://application:,,,/Resources/hamburgerButton.png"/>
-            </Button>
-            <Button x:Name="HomeButton"
-                    Click="HomeButton_Click"
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Height="90"
-                    Background="Transparent"
-                    BorderThickness="0"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Margin="0 0 0 0">
-                <StackPanel HorizontalAlignment="Left"
-                            Orientation="Horizontal">
-                    <Image x:Name="HomeButtonIcon"
-                           Margin="10 0 0 0"
-                           Height="Auto"
-                           Width="70"
-                           VerticalAlignment="Stretch"
-                           HorizontalAlignment="Stretch"
-                           Source="pack://application:,,,/Resources/homeButton.png"/>
-                    <Label Content="Dashboard Home"
+                       VerticalAlignment="Stretch"
+                       HorizontalAlignment="Stretch"
+                       Source="pack://application:,,,/Resources/homeButton.png"/>
+                <Label Content="Dashboard Home"
                        VerticalAlignment="Center" 
                        HorizontalAlignment="Left" 
                        FontSize="25" 
@@ -95,29 +78,22 @@
                        Width="Auto"
                        Height="Auto"
                        Margin="12 0 9 0"/>
-                </StackPanel>
-            </Button>
-            <Button x:Name="RoundButton"
-                    Click="RoundButton_Click"
-                    Grid.Row="2"
-                    Grid.Column="0"
-                    Height="90"
-                    Width="Auto"
-                    Background="Transparent"
-                    BorderThickness="0"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Margin="0 0 0 0">
-                <StackPanel HorizontalAlignment="Left"
-                            Orientation="Horizontal">
-                    <Image Name="RoundButtonIcon"
-                           Margin="10 0 0 0"
-                           Height="Auto"
-                           Width="70"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           Source="pack://application:,,,/Resources/roundButton.png"/>
-                    <Label Content="Machine Control" 
+            </StackPanel>
+
+            <StackPanel x:Name="RoundButton"
+                        MouseDown="RoundButton_MouseDown"
+                        Grid.Row="2"
+                        Grid.Column="0" 
+                        HorizontalAlignment="Left"
+                        Orientation="Horizontal">
+                <Image Name="RoundButtonIcon"
+                       Margin="10 0 0 0"
+                       Height="Auto"
+                       Width="70"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Source="pack://application:,,,/Resources/roundButton.png"/>
+                <Label Content="Machine Control" 
                        VerticalAlignment="Center" 
                        HorizontalAlignment="Left" 
                        FontSize="25" 
@@ -126,29 +102,22 @@
                        Width="Auto"
                        Height="Auto"
                        Margin="12 0 27 0"/>
-                </StackPanel>
-            </Button>
-            <Button x:Name="ConnectionButton"
-                    Click="ConnectionButton_Click"
-                    Grid.Column="0"
-                    Grid.Row="3"
-                    Height="90"
-                    Width="Auto"
-                    Background="Transparent"
-                    BorderThickness="0"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Margin="0 0 0 0">
-                <StackPanel HorizontalAlignment="Left"
-                            Orientation="Horizontal">
-                    <Image x:Name="ConnectionButtonIcon"
-                           Margin="10 0 0 0"
-                           Height="Auto"
-                           Width="70"
+            </StackPanel>
+
+            <StackPanel x:Name="ConnectionButton"
+                        MouseDown="ConnectionButton_MouseDown"
+                        Grid.Column="0"
+                        Grid.Row="3"
+                        HorizontalAlignment="Left"
+                        Orientation="Horizontal">
+                <Image x:Name="ConnectionButtonIcon"
+                       Margin="10 0 0 0"
+                       Height="Auto"
+                       Width="70"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        Source="pack://application:,,,/Resources/connectionButton.png"/>
-                    <Label Margin="12 0 69 0"
+                <Label Margin="12 0 69 0"
                        Content="Connections" 
                        VerticalAlignment="Center" 
                        HorizontalAlignment="Left" 
@@ -157,29 +126,22 @@
                        Foreground="White" 
                        Width="Auto"
                        Height="Auto"/>
-                </StackPanel>
-            </Button>
-            <Button x:Name="StarButton"
-                    Click="StarButton_Click"
-                    Grid.Column="0"
-                    Grid.Row="4"
-                    Height="90"
-                    Width="Auto"
-                    Background="Transparent"
-                    BorderThickness="0"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Margin="0 0 0 0">
-                <StackPanel HorizontalAlignment="Left"
-                            Orientation="Horizontal">
-                    <Image x:Name="StarButtonIcon"
-                           Margin="10 0 0 0"
-                           Height="Auto"
-                           Width="70"
+            </StackPanel>
+
+            <StackPanel x:Name="StarButton"
+                        MouseDown="StarButton_MouseDown"
+                        Grid.Column="0"
+                        Grid.Row="4"
+                        HorizontalAlignment="Left"
+                        Orientation="Horizontal">
+                <Image x:Name="StarButtonIcon"
+                       Margin="10 0 0 0"
+                       Height="Auto"
+                       Width="70"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        Source="pack://application:,,,/Resources/starButton.png"/>
-                    <Label Content="Favorites" 
+                <Label Content="Favorites" 
                        VerticalAlignment="Center" 
                        HorizontalAlignment="Left" 
                        FontSize="25" 
@@ -188,29 +150,22 @@
                        Width="Auto"
                        Height="Auto"
                        Margin="12 0 104 0"/>
-                </StackPanel>
-            </Button>
-            <Button x:Name="DocumentButton"
-                    Click="DocumentButton_Click"
-                    Grid.Column="0"
-                    Grid.Row="5"
-                    Height="90"
-                    Width="Auto"
-                    Background="Transparent"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    BorderThickness="0"
-                    Margin="0 0 0 0">
-                <StackPanel HorizontalAlignment="Left"
-                            Orientation="Horizontal">
-                    <Image x:Name="DocumentButtonIcon"
-                           Margin="15 0 0 0"
-                           Height="Auto"
-                           Width="60"
+            </StackPanel>
+
+            <StackPanel x:Name="DocumentButton"
+                        MouseDown="DocumentButton_MouseDown"
+                        Grid.Column="0"
+                        Grid.Row="5" 
+                        HorizontalAlignment="Left"
+                        Orientation="Horizontal">
+                <Image x:Name="DocumentButtonIcon"
+                       Margin="15 0 0 0"
+                       Height="Auto"
+                       Width="60"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        Source="pack://application:,,,/Resources/documentButton.png"/>
-                    <Label Content="Diagnostic" 
+                <Label Content="Diagnostic" 
                        Grid.Row="5"
                        VerticalAlignment="Center" 
                        HorizontalAlignment="Left" 
@@ -220,29 +175,22 @@
                        Width="Auto"
                        Height="Auto"
                        Margin="17 0 88 0"/>
-                </StackPanel>
-            </Button>
-            <Button x:Name="ArrowButton"
-                    Click="ArrowButton_Click"
-                    Grid.Row="6"
-                    Grid.Column="0"
-                    Height="90"
-                    Width="Auto"
-                    Background="Transparent"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    BorderThickness="0"
-                    Margin="0 0 0 0">
-                <StackPanel HorizontalAlignment="Left"
-                            Orientation="Horizontal">
-                    <Image x:Name="ArrowButtonIcon"
-                           Margin="15 0 0 0"
-                           Height="Auto"
-                           Width="60"
+            </StackPanel>
+
+            <StackPanel x:Name="ArrowButton"
+                        MouseDown="ArrowButton_MouseDown"
+                        Grid.Row="6"
+                        Grid.Column="0"
+                        HorizontalAlignment="Left"
+                        Orientation="Horizontal">
+                <Image x:Name="ArrowButtonIcon"
+                       Margin="15 0 0 0"
+                       Height="Auto"
+                       Width="60"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        Source="pack://application:,,,/Resources/arrowButton.png"/>
-                    <Label Content="Update" 
+                <Label Content="Update" 
                        Grid.Row="6"
                        Grid.Column="1"
                        VerticalAlignment="Center" 
@@ -253,29 +201,22 @@
                        Width="Auto"
                        Height="Auto"
                        Margin="17 0 111 0"/>
-                </StackPanel>
-            </Button>
-            <Button x:Name="SettingsButton"
-                    Click="SettingsButton_Click"
-                    Grid.Row="7"
-                    Grid.Column="0"
-                    Height="90"
-                    Width="Auto"
-                    Background="Transparent"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    BorderThickness="0"
-                    Margin="0 0 0 0">
-                <StackPanel HorizontalAlignment="Left"
-                            Orientation="Horizontal">
-                    <Image x:Name="SettingsButtonIcon"
-                           Margin="10 0 0 0"
-                           Height="Auto"
-                           Width="70"
+            </StackPanel>
+
+            <StackPanel x:Name="SettingsButton"
+                        MouseDown="SettingsButton_MouseDown"
+                        Grid.Row="7"
+                        Grid.Column="0"
+                        HorizontalAlignment="Left"
+                        Orientation="Horizontal">
+                <Image x:Name="SettingsButtonIcon"
+                       Margin="10 0 0 0"
+                       Height="Auto"
+                       Width="70"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        Source="pack://application:,,,/Resources/settingsButton.png"/>
-                    <Label Content="Settings" 
+                <Label Content="Settings" 
                        Grid.Row="7"
                        Grid.Column="1"
                        VerticalAlignment="Center" 
@@ -286,8 +227,7 @@
                        Width="Auto"
                        Height="Auto"
                        Margin="13 0 105 0"/>
-                </StackPanel>
-            </Button>
+            </StackPanel>
         </Grid>
     </Grid>
 </Window>

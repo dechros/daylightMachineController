@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DayLightMachineController.Utility;
 using System.Threading;
+using DayLightMachineController.View.MainWindowPages;
 
 namespace DayLightMachineController.View
 {
@@ -27,12 +28,39 @@ namespace DayLightMachineController.View
         private LicenseHandler licenseHandler;
         private LicenseWindow licenseWindow;
         private MainWindow mainWindow;
+
+        private Page MainWindowHomePage;
+        private Page MainWindowControlPage;
+        private Page MainWindowConnectionPage;
+        private Page MainWindowFavoritesPage;
+        private Page MainWindowDetailsPage;
+        private Page MainWindowUpdatePage;
+        private Page MainWindowSettingsPage;
+
+        List<Page> PageList;
+
         public SplashWindow()
         {
             InitializeComponent();
             licenseHandler = new LicenseHandler();
-            
+            PageList = new List<Page>();
+
+            MainWindowHomePage = new HomePage();
+            PageList.Add(MainWindowHomePage);
+            MainWindowControlPage = new ControlPage();
+            PageList.Add(MainWindowControlPage);
+            MainWindowConnectionPage = new ConnectionPage();
+            PageList.Add(MainWindowConnectionPage);
+            MainWindowFavoritesPage = new FavoritesPage();
+            PageList.Add(MainWindowFavoritesPage);
+            MainWindowDetailsPage = new DetailsPage();
+            PageList.Add(MainWindowDetailsPage);
+            MainWindowUpdatePage = new UpdatePage();
+            PageList.Add(MainWindowUpdatePage);
+            MainWindowSettingsPage = new SettingsPage();
+            PageList.Add(MainWindowSettingsPage);
         }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             deviceId = GetDeviceId();
@@ -47,7 +75,7 @@ namespace DayLightMachineController.View
             {
                 Dispatcher.Invoke(new Action(() => licenseStatusLabel.Content = "Machine ID: " + deviceId.ToString() + " Licensed"));
                 await Task.Delay(300);
-                Dispatcher.Invoke(new Action(() => mainWindow = new MainWindow()));
+                Dispatcher.Invoke(new Action(() => mainWindow = new MainWindow(PageList)));
                 Dispatcher.Invoke(new Action(() => mainWindow.Show()));
             }
             else

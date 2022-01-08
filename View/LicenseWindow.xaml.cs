@@ -21,14 +21,15 @@ namespace DayLightMachineController.View
     /// </summary>
     public partial class LicenseWindow : Window
     {
-        private LicenseHandler licenseHandler = new LicenseHandler();
-        private MainWindow mainWindow;
         private string machineId;
+        private LicenseHandler licenseHandler;
+        
         public LicenseWindow(string machineId)
         {
             InitializeComponent();
             this.machineId = machineId;
             machineIdTextBox.Text = machineId;
+            licenseHandler = new LicenseHandler();
         }
 
         private void licenseTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -68,7 +69,7 @@ namespace DayLightMachineController.View
                 if (licenseHandler.WriteLicense(licenseTextBox.Text))
                 {
                     messageLabel.Content = "License Check Succeeded";
-                    Task.Run(() => CheckLicense());
+                    Task.Run(() => RestartApp());
                 }
                 else
                 {
@@ -82,13 +83,11 @@ namespace DayLightMachineController.View
             
         }
 
-        private async Task CheckLicense()
+        private async Task RestartApp()
         {
             await Task.Delay(300);
-            Dispatcher.Invoke(new Action(() => mainWindow = new MainWindow()));
-            Dispatcher.Invoke(new Action(() => mainWindow.Show()));
-            Dispatcher.Invoke(new Action(() => Close()));
-                
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
