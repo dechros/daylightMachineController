@@ -417,6 +417,8 @@
                         <Grid Grid.Column="0"
                               x:Name="EngineButton"
                               MouseDown="Grid_MouseDown"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Center"
                               Margin="5">
                             <Image x:Name="EngineButtonBg"
                                    Margin="0"
@@ -439,6 +441,8 @@
                         <Grid Grid.Column="1"
                               x:Name="LevelingButton"
                               MouseDown="Grid_MouseDown"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Center"
                               Margin="5">
                             <Image x:Name="LevelingButtonBg"
                                    Margin="0"
@@ -462,6 +466,8 @@
                         <Grid Grid.Column="2"
                               x:Name="HammerButton"
                               MouseDown="Grid_MouseDown"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Center"
                               Margin="5">
                             <Image x:Name="HammerButtonBg"
                                    Margin="0"
@@ -485,6 +491,8 @@
                         <Grid Grid.Column="3"
                               x:Name="LightButton"
                               MouseDown="Grid_MouseDown"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Center"
                               Margin="5">
                             <Image x:Name="LightButtonBg"
                                    Margin="0"
@@ -508,6 +516,8 @@
                         <Grid  Grid.Column="4"
                                x:Name="CalibrateButton"
                                MouseDown="Grid_MouseDown"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
                                Margin="5">
                             <Image x:Name="CalibrateButtonBg"
                                    Margin="0"

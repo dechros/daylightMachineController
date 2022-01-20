@@ -8,10 +8,175 @@
       d:DesignHeight="800" d:DesignWidth="1170"
       Title="SettingsPage">
     <Grid Background="#383543">
-        <Label Content="Settings Page"
-               Foreground="White"
-               VerticalAlignment="Center"
-               HorizontalAlignment="Center"
-               FontSize="100"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2.5*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0"
+                BorderBrush="#080F1F"
+                BorderThickness="5"
+                CornerRadius="10"
+                Margin="20 20 20 10">
+            <Grid Name="TopGrid"
+                Background="#080F1F">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0"
+                      Margin="10 0 10 0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0"
+                               Margin="0"
+                               Height="40"
+                               Width="Auto"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Source="pack://application:,,,/Resources/generalControlsLogo.png"/>
+                        <Label Grid.Column="1"
+                               FontSize="25" 
+                               FontFamily="Calibri" 
+                               Foreground="White" 
+                               Content="Change Parameters"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Left"
+                               Margin="0 0 0 0"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Name="LeftTrackButtonGrid"
+                      MouseDown="Grid_MouseDown"
+                      Grid.Column="0"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Center">
+                        <Image x:Name="LeftTrackButtonIcon"
+                           Margin="0 0 0 0"
+                           Height="90"
+                           Width="Auto"
+                           VerticalAlignment="Stretch"
+                           HorizontalAlignment="Stretch"
+                           Source="pack://application:,,,/Resources/rectangularButton.png"/>
+                        <Label Name="LeftTrackButtonLabel"
+                           FontSize="25" 
+                           FontFamily="Calibri" 
+                           Foreground="White" 
+                           Content="Left Track"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Margin="0 0 0 0"/>
+                    </Grid>
+                    <Grid Name="RightTrackButtonGrid"
+                      MouseDown="Grid_MouseDown"
+                      Grid.Column="1"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Center">
+                        <Image x:Name="RightTrackButtonIcon"
+                           Margin="0 0 0 0"
+                           Height="90"
+                           Width="Auto"
+                           VerticalAlignment="Stretch"
+                           HorizontalAlignment="Stretch"
+                           Source="pack://application:,,,/Resources/rectangularButton.png"/>
+                        <Label Name="RightTrackButtonLabel"
+                           FontSize="25" 
+                           FontFamily="Calibri" 
+                           Foreground="White" 
+                           Content="Right Track"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Margin="0 0 0 0"/>
+                    </Grid>
+                    <Grid Name="Elevator1ButtonGrid"
+                      MouseDown="Grid_MouseDown"
+                      Grid.Column="2"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Center">
+                        <Image x:Name="Elevator1ButtonIcon"
+                           Margin="0 0 0 0"
+                           Height="90"
+                           Width="Auto"
+                           VerticalAlignment="Stretch"
+                           HorizontalAlignment="Stretch"
+                           Source="pack://application:,,,/Resources/rectangularButton.png"/>
+                        <Label Name="Elevator1ButtonLabel"
+                           FontSize="25" 
+                           FontFamily="Calibri" 
+                           Foreground="White" 
+                           Content="Elevator 1"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Margin="0 0 0 0"/>
+                    </Grid>
+                    <Grid Name="Elevator2ButtonGrid"
+                      MouseDown="Grid_MouseDown"
+                      Grid.Column="3"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Center">
+                        <Image x:Name="Elevator2ButtonIcon"
+                           Margin="0 0 0 0"
+                           Height="90"
+                           Width="Auto"
+                           VerticalAlignment="Stretch"
+                           HorizontalAlignment="Stretch"
+                           Source="pack://application:,,,/Resources/rectangularButton.png"/>
+                        <Label Name="Elevator2ButtonLabel"
+                           FontSize="25" 
+                           FontFamily="Calibri" 
+                           Foreground="White" 
+                           Content="Elevator 2"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Margin="0 0 0 0"/>
+                    </Grid>
+                    <Grid Name="LevelSensorButtonGrid"
+                      MouseDown="Grid_MouseDown"
+                      Grid.Column="4"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Center">
+                        <Image x:Name="LevelSensorButtonIcon"
+                           Margin="0 0 0 0"
+                           Height="90"
+                           Width="Auto"
+                           VerticalAlignment="Stretch"
+                           HorizontalAlignment="Stretch"
+                           Source="pack://application:,,,/Resources/rectangularButton.png"/>
+                        <Label Name="LevelSensorButtonLabel"
+                           FontSize="25" 
+                           FontFamily="Calibri" 
+                           Foreground="White" 
+                           Content="Level Sensor"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Margin="0 0 0 0"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+        <Grid Name = "BottomGrid"
+            Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Name="FirstColumn"
+              Grid.Column="0">
+                
+            </Grid>
+            <Grid Name="SelondColumn"
+              Grid.Column="1">
+                
+            </Grid>
+        </Grid>
     </Grid>
 </Page>
