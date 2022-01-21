@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:DayLightMachineController.View.MainWindowPages"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1170"
-      Title="SettingsPage">
+      Title="SettingsPage"
+      Loaded="Page_Loaded">
     <Grid Background="#383543">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -56,7 +57,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Grid Name="LeftTrackButtonGrid"
-                          MouseDown="Grid_MouseDown"
+                          MouseDown="TopGrid_MouseDown"
                           Grid.Column="0"
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center">
@@ -77,7 +78,7 @@
                            Margin="0 0 0 0"/>
                     </Grid>
                     <Grid Name="RightTrackButtonGrid"
-                      MouseDown="Grid_MouseDown"
+                      MouseDown="TopGrid_MouseDown"
                       Grid.Column="1"
                       VerticalAlignment="Center"
                       HorizontalAlignment="Center">
@@ -98,7 +99,7 @@
                            Margin="0 0 0 0"/>
                     </Grid>
                     <Grid Name="Elevator1ButtonGrid"
-                      MouseDown="Grid_MouseDown"
+                      MouseDown="TopGrid_MouseDown"
                       Grid.Column="2"
                       VerticalAlignment="Center"
                       HorizontalAlignment="Center">
@@ -119,7 +120,7 @@
                            Margin="0 0 0 0"/>
                     </Grid>
                     <Grid Name="Elevator2ButtonGrid"
-                      MouseDown="Grid_MouseDown"
+                      MouseDown="TopGrid_MouseDown"
                       Grid.Column="3"
                       VerticalAlignment="Center"
                       HorizontalAlignment="Center">
@@ -140,7 +141,7 @@
                            Margin="0 0 0 0"/>
                     </Grid>
                     <Grid Name="LevelSensorButtonGrid"
-                      MouseDown="Grid_MouseDown"
+                      MouseDown="TopGrid_MouseDown"
                       Grid.Column="4"
                       VerticalAlignment="Center"
                       HorizontalAlignment="Center">
@@ -170,12 +171,84 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid Name="FirstColumn"
-              Grid.Column="0">
-                
+                Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0"
+                    BorderBrush="#080F1F"
+                    BorderThickness="5"
+                    CornerRadius="10"
+                    Margin="20 10 10 10">
+                    <Grid Name="LeftTopSliderGrid"
+                        Background="#080F1F">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Name="LeftTopSliderHeaderGrid"
+                              Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0"
+                                   Margin="0"
+                                   Height="40"
+                                   Width="Auto"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/settingsbutton.png"/>
+                            <Label Name="LeftTopSliderLabel"
+                                   Grid.Column="1"
+                                   FontSize="25" 
+                                   FontFamily="Calibri" 
+                                   Foreground="White" 
+                                   Content="Minimum Valve Opening"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Margin="0 0 0 0"/>
+                        </Grid>
+                        <Grid Name="LeftTopSliderTouchGrid"
+                              MouseMove="LeftTopParameterTouchBallMove"
+                              MouseDown="LeftTopParameterTouchBallMove"
+                              MouseUp="LeftTopSliderTouchGrid_MouseUp"
+                              MouseLeave="LeftTopSliderTouchGrid_MouseLeave"
+                              Grid.Row="1">
+                            <Image Name="LeftTopSliderBackgorund"
+                                   Margin="20 0 20 0"
+                                   Stretch="Fill"
+                                   Height="20"
+                                   Width="Auto"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/sliderBackgorund.png">
+                            </Image>
+                            <Image Name="LeftTopSliderForeground"
+                                   Margin="20 0 20 0"
+                                   Stretch="Fill"
+                                   Height="20"
+                                   Width="250"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Source="pack://application:,,,/Resources/sliderForeground.png">
+                            </Image>
+                            <Image x:Name="LeftTopParameterTouchBall"
+                                   Margin="0 0 0 0"
+                                   Height="90"
+                                   Width="Auto"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/touchBall.png"/>
+                        </Grid>
+                    </Grid>
+                </Border>
             </Grid>
             <Grid Name="SelondColumn"
-              Grid.Column="1">
-                
+                Grid.Column="1">
+
             </Grid>
         </Grid>
     </Grid>

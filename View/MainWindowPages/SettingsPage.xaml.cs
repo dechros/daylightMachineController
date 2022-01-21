@@ -35,50 +35,78 @@ namespace DayLightMachineController.View.MainWindowPages
             elevator2ButtonPressed = false;
             levelSensorButtonPressed = false;
 
-            LeftTrackButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/rectangularButtonClicked.png"));
-            LeftTrackButtonLabel.Foreground = new SolidColorBrush(Color.FromRgb(8, 15, 31));
-            leftTrackButtonPressed = true;
+            ClickLeftTrackButton();
         }
 
-        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            SetValueForLeftTopSlider(RandomNumber(0, 100));
+        }
+
+        private void TopGrid_MouseDown(object sender, MouseButtonEventArgs e)
         {
             UnclickAllTopButtons();
 
             Grid clickedButton = (Grid)sender;
             if (clickedButton.Name == "LeftTrackButtonGrid")
             {
-                LeftTrackButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/rectangularButtonClicked.png"));
-                LeftTrackButtonLabel.Foreground = new SolidColorBrush(Color.FromRgb(8, 15, 31));
-                leftTrackButtonPressed = true;
+                ClickLeftTrackButton();
             }
             else if (clickedButton.Name == "RightTrackButtonGrid")
             {
-                RightTrackButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/rectangularButtonClicked.png"));
-                RightTrackButtonLabel.Foreground = new SolidColorBrush(Color.FromRgb(8, 15, 31));
-                rightTrackButtonPressed = true;
+                ClickRightTrackButton();
             }
             else if (clickedButton.Name == "Elevator1ButtonGrid")
             {
-                Elevator1ButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/rectangularButtonClicked.png"));
-                Elevator1ButtonLabel.Foreground = new SolidColorBrush(Color.FromRgb(8, 15, 31));
-                elevator1ButtonPressed = true;
+                ClickElevator1Button();
             }
             else if (clickedButton.Name == "Elevator2ButtonGrid")
             {
-                Elevator2ButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/rectangularButtonClicked.png"));
-                Elevator2ButtonLabel.Foreground = new SolidColorBrush(Color.FromRgb(8, 15, 31));
-                elevator2ButtonPressed = true;
+                ClickElevator2Button();
             }
             else if (clickedButton.Name == "LevelSensorButtonGrid")
             {
-                LevelSensorButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/rectangularButtonClicked.png"));
-                LevelSensorButtonLabel.Foreground = new SolidColorBrush(Color.FromRgb(8, 15, 31));
-                levelSensorButtonPressed = true;
+                ClickLevelSensorButton();
             }
             else
             {
                 Console.WriteLine("Hatali Buton Secimi.");
             }
+        }
+
+        private void ClickLeftTrackButton()
+        {
+            LeftTrackButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/rectangularButtonClicked.png"));
+            LeftTrackButtonLabel.Foreground = new SolidColorBrush(Color.FromRgb(8, 15, 31));
+            leftTrackButtonPressed = true;
+        }
+
+        private void ClickRightTrackButton()
+        {
+            RightTrackButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/rectangularButtonClicked.png"));
+            RightTrackButtonLabel.Foreground = new SolidColorBrush(Color.FromRgb(8, 15, 31));
+            rightTrackButtonPressed = true;
+        }
+
+        private void ClickElevator1Button()
+        {
+            Elevator1ButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/rectangularButtonClicked.png"));
+            Elevator1ButtonLabel.Foreground = new SolidColorBrush(Color.FromRgb(8, 15, 31));
+            elevator1ButtonPressed = true;
+        }
+
+        private void ClickElevator2Button()
+        {
+            Elevator2ButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/rectangularButtonClicked.png"));
+            Elevator2ButtonLabel.Foreground = new SolidColorBrush(Color.FromRgb(8, 15, 31));
+            elevator2ButtonPressed = true;
+        }
+
+        private void ClickLevelSensorButton()
+        {
+            LevelSensorButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/rectangularButtonClicked.png"));
+            LevelSensorButtonLabel.Foreground = new SolidColorBrush(Color.FromRgb(8, 15, 31));
+            levelSensorButtonPressed = true;
         }
 
         private void UnclickAllTopButtons()
@@ -102,6 +130,103 @@ namespace DayLightMachineController.View.MainWindowPages
             LeftTrackButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/rectangularButton.png"));
             LeftTrackButtonLabel.Foreground = new SolidColorBrush(Colors.White);
             leftTrackButtonPressed = false;
+        }
+
+        private void LeftTopParameterTouchBallMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            if (e.LeftButton != MouseButtonState.Pressed)
+            {
+                return;
+            }
+
+            Point position = e.GetPosition(this);
+
+            double newMarginForBall = (position.X - 300) * 2;
+
+            if (newMarginForBall < -460)
+            {
+                newMarginForBall = -460;
+            }
+            else if (newMarginForBall > 460)
+            {
+                newMarginForBall = 460;
+            }
+
+            LeftTopParameterTouchBall.Margin = new Thickness(newMarginForBall, 0, 0, 0);
+
+            double newPosiitonForForeground = position.X - 45;
+
+            if (newPosiitonForForeground < 0)
+            {
+                newPosiitonForForeground = 0;
+            }
+            else if (newPosiitonForForeground > 520)
+            {
+                newPosiitonForForeground = 520;
+            }
+
+            LeftTopSliderForeground.Width = newPosiitonForForeground;
+        }
+
+        private void SetValueForLeftTopSlider(int percentage)
+        {
+            if (percentage > 100 || percentage < 0)
+            {
+                Console.WriteLine("  ## SetValueForLeftTopSlider percentage is out of bounds.");
+                return;
+            }
+
+            double newMarginForBall = (percentage * 9.2) - 460;
+
+            if (newMarginForBall < -460)
+            {
+                newMarginForBall = -460;
+            }
+            else if (newMarginForBall > 460)
+            {
+                newMarginForBall = 460;
+            }
+
+            LeftTopParameterTouchBall.Margin = new Thickness(newMarginForBall, 0, 0, 0);
+
+            double newWidthForForeground = percentage * 5.2;
+
+            if (newWidthForForeground < 0)
+            {
+                newWidthForForeground = 0;
+            }
+            else if (newWidthForForeground > 520)
+            {
+                newWidthForForeground = 520;
+            }
+
+            LeftTopSliderForeground.Width = newWidthForForeground;
+        }
+
+        private double GetValueFromLeftTopSlider()
+        {
+            return (LeftTopSliderForeground.Width / 5.2);
+        }
+
+        private int RandomNumber(int min, int max)
+        {
+            Random random = new Random(); 
+            return random.Next(min, max);
+        }
+
+        private void LeftTopSliderTouchGrid_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Console.WriteLine(GetValueFromLeftTopSlider());
+        }
+
+        private void LeftTopSliderTouchGrid_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton != MouseButtonState.Pressed)
+            {
+                return;
+            }
+
+            Console.WriteLine(GetValueFromLeftTopSlider());
         }
     }
 }
