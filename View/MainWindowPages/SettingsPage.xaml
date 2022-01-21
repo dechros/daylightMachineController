@@ -56,10 +56,10 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Grid Name="LeftTrackButtonGrid"
-                      MouseDown="Grid_MouseDown"
-                      Grid.Column="0"
-                      VerticalAlignment="Center"
-                      HorizontalAlignment="Center">
+                          MouseDown="Grid_MouseDown"
+                          Grid.Column="0"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center">
                         <Image x:Name="LeftTrackButtonIcon"
                            Margin="0 0 0 0"
                            Height="90"
