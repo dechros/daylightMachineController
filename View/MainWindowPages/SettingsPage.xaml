@@ -210,6 +210,17 @@
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Left"
                                    Margin="0 0 0 0"/>
+                            <Label x:Name="LeftTopPercentageLabel"
+                                   Grid.Column="1"
+                                   FontSize="25" 
+                                   FontFamily="Calibri" 
+                                   Foreground="Gray" 
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"
+                                   Content="50 / 100"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Right"
+                                   Margin="0 0 15 10"/>
                         </Grid>
                         <Grid Name="LeftTopSliderTouchGrid"
                               MouseMove="LeftTopParameterTouchBallMove"
@@ -278,6 +289,17 @@
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Left"
                                    Margin="0 0 0 0"/>
+                            <Label x:Name="LeftMidPercentageLabel"
+                                   Grid.Column="1"
+                                   FontSize="25" 
+                                   FontFamily="Calibri" 
+                                   Foreground="Gray" 
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"
+                                   Content="50 / 100"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Right"
+                                   Margin="0 0 15 10"/>
                         </Grid>
                         <Grid Name="LeftMidSliderTouchGrid"
                               MouseMove="LeftMidParameterTouchBallMove"
@@ -346,6 +368,17 @@
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Left"
                                    Margin="0 0 0 0"/>
+                            <Label x:Name="LeftBottomPercentageLabel"
+                                   Grid.Column="1"
+                                   FontSize="25" 
+                                   FontFamily="Calibri" 
+                                   Foreground="Gray" 
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"
+                                   Content="50 / 100"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Right"
+                                   Margin="0 0 15 10"/>
                         </Grid>
                         <Grid Name="LeftBottomSliderTouchGrid"
                               MouseMove="LeftBottomParameterTouchBallMove"
@@ -422,6 +455,17 @@
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Left"
                                    Margin="0 0 0 0"/>
+                            <Label x:Name="RightTopPercentageLabel"
+                                   Grid.Column="1"
+                                   FontSize="25" 
+                                   FontFamily="Calibri" 
+                                   Foreground="Gray" 
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"
+                                   Content="50 / 100"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Right"
+                                   Margin="0 0 15 10"/>
                         </Grid>
                         <Grid Name="RightTopSliderTouchGrid"
                               MouseMove="RightTopParameterTouchBallMove"
@@ -490,6 +534,17 @@
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Left"
                                    Margin="0 0 0 0"/>
+                            <Label x:Name="RightMidPercentageLabel"
+                                   Grid.Column="1"
+                                   FontSize="25" 
+                                   FontFamily="Calibri" 
+                                   Foreground="Gray" 
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"
+                                   Content="50 / 100"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Right"
+                                   Margin="0 0 15 10"/>
                         </Grid>
                         <Grid Name="RightMidSliderTouchGrid"
                               MouseMove="RightMidParameterTouchBallMove"
@@ -558,6 +613,17 @@
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Left"
                                    Margin="0 0 0 0"/>
+                            <Label x:Name="RightBottomPercentageLabel"
+                                   Grid.Column="1"
+                                   FontSize="25" 
+                                   FontFamily="Calibri" 
+                                   Foreground="Gray" 
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"
+                                   Content="50 / 100"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Right"
+                                   Margin="0 0 15 10"/>
                         </Grid>
                         <Grid Name="RightBottomSliderTouchGrid"
                               MouseMove="RightBottomParameterTouchBallMove"
