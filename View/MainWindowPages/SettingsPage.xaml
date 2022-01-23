@@ -11,7 +11,7 @@
     <Grid Background="#383543">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="2.5*"/>
+            <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
         <Border Grid.Row="0"
                 BorderBrush="#080F1F"
@@ -21,7 +21,7 @@
             <Grid Name="TopGrid"
                 Background="#080F1F">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="0"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0"
@@ -140,23 +140,23 @@
                            HorizontalAlignment="Center"
                            Margin="0 0 0 0"/>
                     </Grid>
-                    <Grid Name="LevelSensorButtonGrid"
+                    <Grid Name="MiscButtonGrid"
                       MouseDown="TopGrid_MouseDown"
                       Grid.Column="4"
                       VerticalAlignment="Center"
                       HorizontalAlignment="Center">
-                        <Image x:Name="LevelSensorButtonIcon"
+                        <Image x:Name="MiscButtonIcon"
                            Margin="0 0 0 0"
                            Height="90"
                            Width="Auto"
                            VerticalAlignment="Stretch"
                            HorizontalAlignment="Stretch"
                            Source="pack://application:,,,/Resources/rectangularButton.png"/>
-                        <Label Name="LevelSensorButtonLabel"
+                        <Label Name="MiscButtonLabel"
                            FontSize="25" 
                            FontFamily="Calibri" 
                            Foreground="White" 
-                           Content="Level Sensor"
+                           Content="Miscellaneous"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            Margin="0 0 0 0"/>
@@ -206,7 +206,7 @@
                                    FontSize="25" 
                                    FontFamily="Calibri" 
                                    Foreground="White" 
-                                   Content="Minimum Valve Opening"
+                                   Content="Parameter 1"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Left"
                                    Margin="0 0 0 0"/>
@@ -245,10 +245,354 @@
                         </Grid>
                     </Grid>
                 </Border>
+                <Border Grid.Row="1"
+                    BorderBrush="#080F1F"
+                    BorderThickness="5"
+                    CornerRadius="10"
+                    Margin="20 10 10 10">
+                    <Grid Name="LeftMidSliderGrid"
+                        Background="#080F1F">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Name="LeftMidSliderHeaderGrid"
+                              Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0"
+                                   Margin="0"
+                                   Height="40"
+                                   Width="Auto"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/settingsbutton.png"/>
+                            <Label Name="LeftMidSliderLabel"
+                                   Grid.Column="1"
+                                   FontSize="25" 
+                                   FontFamily="Calibri" 
+                                   Foreground="White" 
+                                   Content="Parameter 2"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Margin="0 0 0 0"/>
+                        </Grid>
+                        <Grid Name="LeftMidSliderTouchGrid"
+                              MouseMove="LeftMidParameterTouchBallMove"
+                              MouseDown="LeftMidParameterTouchBallMove"
+                              MouseUp="LeftMidSliderTouchGrid_MouseUp"
+                              MouseLeave="LeftMidSliderTouchGrid_MouseLeave"
+                              Grid.Row="1">
+                            <Image Name="LeftMidSliderBackgorund"
+                                   Margin="20 0 20 0"
+                                   Stretch="Fill"
+                                   Height="20"
+                                   Width="Auto"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/sliderBackgorund.png">
+                            </Image>
+                            <Image Name="LeftMidSliderForeground"
+                                   Margin="20 0 20 0"
+                                   Stretch="Fill"
+                                   Height="20"
+                                   Width="250"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Source="pack://application:,,,/Resources/sliderForeground.png">
+                            </Image>
+                            <Image x:Name="LeftMidParameterTouchBall"
+                                   Margin="0 0 0 0"
+                                   Height="90"
+                                   Width="Auto"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/touchBall.png"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="2"
+                    BorderBrush="#080F1F"
+                    BorderThickness="5"
+                    CornerRadius="10"
+                    Margin="20 10 10 20">
+                    <Grid Name="LeftBottomSliderGrid"
+                        Background="#080F1F">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Name="LeftBottomSliderHeaderGrid"
+                              Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0"
+                                   Margin="0"
+                                   Height="40"
+                                   Width="Auto"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/settingsbutton.png"/>
+                            <Label Name="LeftBottomSliderLabel"
+                                   Grid.Column="1"
+                                   FontSize="25" 
+                                   FontFamily="Calibri" 
+                                   Foreground="White" 
+                                   Content="Parameter 3"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Margin="0 0 0 0"/>
+                        </Grid>
+                        <Grid Name="LeftBottomSliderTouchGrid"
+                              MouseMove="LeftBottomParameterTouchBallMove"
+                              MouseDown="LeftBottomParameterTouchBallMove"
+                              MouseUp="LeftBottomSliderTouchGrid_MouseUp"
+                              MouseLeave="LeftBottomSliderTouchGrid_MouseLeave"
+                              Grid.Row="1">
+                            <Image Name="LeftBottomSliderBackgorund"
+                                   Margin="20 0 20 0"
+                                   Stretch="Fill"
+                                   Height="20"
+                                   Width="Auto"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/sliderBackgorund.png">
+                            </Image>
+                            <Image Name="LeftBottomSliderForeground"
+                                   Margin="20 0 20 0"
+                                   Stretch="Fill"
+                                   Height="20"
+                                   Width="250"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Source="pack://application:,,,/Resources/sliderForeground.png">
+                            </Image>
+                            <Image x:Name="LeftBottomParameterTouchBall"
+                                   Margin="0 0 0 0"
+                                   Height="90"
+                                   Width="Auto"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/touchBall.png"/>
+                        </Grid>
+                    </Grid>
+                </Border>
             </Grid>
             <Grid Name="SelondColumn"
                 Grid.Column="1">
-
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0"
+                    BorderBrush="#080F1F"
+                    BorderThickness="5"
+                    CornerRadius="10"
+                    Margin="10 10 20 10">
+                    <Grid Name="RightTopSliderGrid"
+                        Background="#080F1F">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Name="RightTopSliderHeaderGrid"
+                              Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0"
+                                   Margin="0"
+                                   Height="40"
+                                   Width="Auto"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/settingsbutton.png"/>
+                            <Label Name="RightTopSliderLabel"
+                                   Grid.Column="1"
+                                   FontSize="25" 
+                                   FontFamily="Calibri" 
+                                   Foreground="White" 
+                                   Content="Parameter 4"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Margin="0 0 0 0"/>
+                        </Grid>
+                        <Grid Name="RightTopSliderTouchGrid"
+                              MouseMove="RightTopParameterTouchBallMove"
+                              MouseDown="RightTopParameterTouchBallMove"
+                              MouseUp="RightTopSliderTouchGrid_MouseUp"
+                              MouseLeave="RightTopSliderTouchGrid_MouseLeave"
+                              Grid.Row="1">
+                            <Image Name="RightTopSliderBackgorund"
+                                   Margin="20 0 20 0"
+                                   Stretch="Fill"
+                                   Height="20"
+                                   Width="Auto"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/sliderBackgorund.png">
+                            </Image>
+                            <Image Name="RightTopSliderForeground"
+                                   Margin="20 0 20 0"
+                                   Stretch="Fill"
+                                   Height="20"
+                                   Width="250"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Source="pack://application:,,,/Resources/sliderForeground.png">
+                            </Image>
+                            <Image x:Name="RightTopParameterTouchBall"
+                                   Margin="0 0 0 0"
+                                   Height="90"
+                                   Width="Auto"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/touchBall.png"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="1"
+                    BorderBrush="#080F1F"
+                    BorderThickness="5"
+                    CornerRadius="10"
+                    Margin="10 10 20 10">
+                    <Grid Name="RightMidSliderGrid"
+                        Background="#080F1F">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Name="RightMidSliderHeaderGrid"
+                              Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0"
+                                   Margin="0"
+                                   Height="40"
+                                   Width="Auto"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/settingsbutton.png"/>
+                            <Label Name="RightMidSliderLabel"
+                                   Grid.Column="1"
+                                   FontSize="25" 
+                                   FontFamily="Calibri" 
+                                   Foreground="White" 
+                                   Content="Parameter 5"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Margin="0 0 0 0"/>
+                        </Grid>
+                        <Grid Name="RightMidSliderTouchGrid"
+                              MouseMove="RightMidParameterTouchBallMove"
+                              MouseDown="RightMidParameterTouchBallMove"
+                              MouseUp="RightMidSliderTouchGrid_MouseUp"
+                              MouseLeave="RightMidSliderTouchGrid_MouseLeave"
+                              Grid.Row="1">
+                            <Image Name="RightMidSliderBackgorund"
+                                   Margin="20 0 20 0"
+                                   Stretch="Fill"
+                                   Height="20"
+                                   Width="Auto"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/sliderBackgorund.png">
+                            </Image>
+                            <Image Name="RightMidSliderForeground"
+                                   Margin="20 0 20 0"
+                                   Stretch="Fill"
+                                   Height="20"
+                                   Width="250"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Source="pack://application:,,,/Resources/sliderForeground.png">
+                            </Image>
+                            <Image x:Name="RightMidParameterTouchBall"
+                                   Margin="0 0 0 0"
+                                   Height="90"
+                                   Width="Auto"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/touchBall.png"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="2"
+                    BorderBrush="#080F1F"
+                    BorderThickness="5"
+                    CornerRadius="10"
+                    Margin="10 10 20 20">
+                    <Grid Name="RightBottomSliderGrid"
+                        Background="#080F1F">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Name="RightBottomSliderHeaderGrid"
+                              Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0"
+                                   Margin="0"
+                                   Height="40"
+                                   Width="Auto"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/settingsbutton.png"/>
+                            <Label Name="RightBottomSliderLabel"
+                                   Grid.Column="1"
+                                   FontSize="25" 
+                                   FontFamily="Calibri" 
+                                   Foreground="White" 
+                                   Content="Parameter 6"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Margin="0 0 0 0"/>
+                        </Grid>
+                        <Grid Name="RightBottomSliderTouchGrid"
+                              MouseMove="RightBottomParameterTouchBallMove"
+                              MouseDown="RightBottomParameterTouchBallMove"
+                              MouseUp="RightBottomSliderTouchGrid_MouseUp"
+                              MouseLeave="RightBottomSliderTouchGrid_MouseLeave"
+                              Grid.Row="1">
+                            <Image Name="RightBottomSliderBackgorund"
+                                   Margin="20 0 20 0"
+                                   Stretch="Fill"
+                                   Height="20"
+                                   Width="Auto"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/sliderBackgorund.png">
+                            </Image>
+                            <Image Name="RightBottomSliderForeground"
+                                   Margin="20 0 20 0"
+                                   Stretch="Fill"
+                                   Height="20"
+                                   Width="250"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Source="pack://application:,,,/Resources/sliderForeground.png">
+                            </Image>
+                            <Image x:Name="RightBottomParameterTouchBall"
+                                   Margin="0 0 0 0"
+                                   Height="90"
+                                   Width="Auto"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Source="pack://application:,,,/Resources/touchBall.png"/>
+                        </Grid>
+                    </Grid>
+                </Border>
             </Grid>
         </Grid>
     </Grid>

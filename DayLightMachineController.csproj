@@ -76,6 +76,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Utility\FileHandler.cs" />
+    <Compile Include="Utility\RandomNumberGenerator.cs" />
     <Compile Include="Utility\StringHelper.cs" />
     <Compile Include="View\LicenseWindow.xaml.cs">
       <DependentUpon>LicenseWindow.xaml</DependentUpon>

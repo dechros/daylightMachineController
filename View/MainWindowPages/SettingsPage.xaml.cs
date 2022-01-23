@@ -20,11 +20,13 @@ namespace DayLightMachineController.View.MainWindowPages
     /// </summary>
     public partial class SettingsPage : Page
     {
-        bool leftTrackButtonPressed;
-        bool rightTrackButtonPressed;
-        bool elevator1ButtonPressed;
-        bool elevator2ButtonPressed;
-        bool levelSensorButtonPressed;
+        private bool leftTrackButtonPressed;
+        private bool rightTrackButtonPressed;
+        private bool elevator1ButtonPressed;
+        private bool elevator2ButtonPressed;
+        private bool miscButtonPressed;
+
+        private Utility.RandomNumberGenerator randomGenerator;
         public SettingsPage()
         {
             InitializeComponent();
@@ -33,19 +35,21 @@ namespace DayLightMachineController.View.MainWindowPages
             rightTrackButtonPressed = false;
             elevator1ButtonPressed = false;
             elevator2ButtonPressed = false;
-            levelSensorButtonPressed = false;
+            miscButtonPressed = false;
+
+            randomGenerator = new Utility.RandomNumberGenerator();
 
             ClickLeftTrackButton();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            SetValueForLeftTopSlider(RandomNumber(0, 100));
         }
 
         private void TopGrid_MouseDown(object sender, MouseButtonEventArgs e)
         {
             UnclickAllTopButtons();
+            SetRandomValuesToSliders();
 
             Grid clickedButton = (Grid)sender;
             if (clickedButton.Name == "LeftTrackButtonGrid")
@@ -64,9 +68,9 @@ namespace DayLightMachineController.View.MainWindowPages
             {
                 ClickElevator2Button();
             }
-            else if (clickedButton.Name == "LevelSensorButtonGrid")
+            else if (clickedButton.Name == "MiscButtonGrid")
             {
-                ClickLevelSensorButton();
+                ClickMiscButton();
             }
             else
             {
@@ -74,11 +78,32 @@ namespace DayLightMachineController.View.MainWindowPages
             }
         }
 
+        private void SetSliderLabelsForValves()
+        {
+            LeftTopSliderLabel.Content = "Minimum Valve Opening";
+            LeftMidSliderLabel.Content = "Maximum Valve Opening";
+            LeftBottomSliderLabel.Content = "Middle Valve Position";
+            RightTopSliderLabel.Content = "Starting Ramp";
+            RightMidSliderLabel.Content = "Stopping Ramp"; 
+            RightBottomSliderLabel.Content = "Filter Strength";
+        }
+
+        private void SetSliderLabelsForMisc()
+        {
+            LeftTopSliderLabel.Content = "Leveling Sensor Data Interval";
+            LeftMidSliderLabel.Content = "Leveling Sensor Filter Strength";
+            LeftBottomSliderLabel.Content = "Leveling Sensor Data Size";
+            RightTopSliderLabel.Content = "Information Data Interval";
+            RightMidSliderLabel.Content = "Engine RPM Filter Strength";
+            RightBottomSliderLabel.Content = "Lost Connection Interval";
+        }
+
         private void ClickLeftTrackButton()
         {
             LeftTrackButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/rectangularButtonClicked.png"));
             LeftTrackButtonLabel.Foreground = new SolidColorBrush(Color.FromRgb(8, 15, 31));
             leftTrackButtonPressed = true;
+            SetSliderLabelsForValves();
         }
 
         private void ClickRightTrackButton()
@@ -86,6 +111,7 @@ namespace DayLightMachineController.View.MainWindowPages
             RightTrackButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/rectangularButtonClicked.png"));
             RightTrackButtonLabel.Foreground = new SolidColorBrush(Color.FromRgb(8, 15, 31));
             rightTrackButtonPressed = true;
+            SetSliderLabelsForValves();
         }
 
         private void ClickElevator1Button()
@@ -93,6 +119,7 @@ namespace DayLightMachineController.View.MainWindowPages
             Elevator1ButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/rectangularButtonClicked.png"));
             Elevator1ButtonLabel.Foreground = new SolidColorBrush(Color.FromRgb(8, 15, 31));
             elevator1ButtonPressed = true;
+            SetSliderLabelsForValves();
         }
 
         private void ClickElevator2Button()
@@ -100,20 +127,22 @@ namespace DayLightMachineController.View.MainWindowPages
             Elevator2ButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/rectangularButtonClicked.png"));
             Elevator2ButtonLabel.Foreground = new SolidColorBrush(Color.FromRgb(8, 15, 31));
             elevator2ButtonPressed = true;
+            SetSliderLabelsForValves();
         }
 
-        private void ClickLevelSensorButton()
+        private void ClickMiscButton()
         {
-            LevelSensorButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/rectangularButtonClicked.png"));
-            LevelSensorButtonLabel.Foreground = new SolidColorBrush(Color.FromRgb(8, 15, 31));
-            levelSensorButtonPressed = true;
+            MiscButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/rectangularButtonClicked.png"));
+            MiscButtonLabel.Foreground = new SolidColorBrush(Color.FromRgb(8, 15, 31));
+            miscButtonPressed = true;
+            SetSliderLabelsForMisc();
         }
 
         private void UnclickAllTopButtons()
         {
-            LevelSensorButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/rectangularButton.png"));
-            LevelSensorButtonLabel.Foreground = new SolidColorBrush(Colors.White);
-            levelSensorButtonPressed = false;
+            MiscButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/rectangularButton.png"));
+            MiscButtonLabel.Foreground = new SolidColorBrush(Colors.White);
+            miscButtonPressed = false;
 
             Elevator2ButtonIcon.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/rectangularButton.png"));
             Elevator2ButtonLabel.Foreground = new SolidColorBrush(Colors.White);
@@ -131,6 +160,19 @@ namespace DayLightMachineController.View.MainWindowPages
             LeftTrackButtonLabel.Foreground = new SolidColorBrush(Colors.White);
             leftTrackButtonPressed = false;
         }
+
+        private void SetRandomValuesToSliders()
+        {
+            /* For Demo */
+            SetValueForLeftTopSlider(randomGenerator.RandomNumber(0, 100));
+            SetValueForLeftMidSlider(randomGenerator.RandomNumber(0, 100));
+            SetValueForLeftBottomSlider(randomGenerator.RandomNumber(0, 100));
+            SetValueForRightTopSlider(randomGenerator.RandomNumber(0, 100));
+            SetValueForRightMidSlider(randomGenerator.RandomNumber(0, 100));
+            SetValueForRightBottomSlider(randomGenerator.RandomNumber(0, 100));
+        }
+
+        /* Left Top Slider */
 
         private void LeftTopParameterTouchBallMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
@@ -208,15 +250,11 @@ namespace DayLightMachineController.View.MainWindowPages
             return (LeftTopSliderForeground.Width / 5.2);
         }
 
-        private int RandomNumber(int min, int max)
-        {
-            Random random = new Random(); 
-            return random.Next(min, max);
-        }
-
         private void LeftTopSliderTouchGrid_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            /* For Demo */
             Console.WriteLine(GetValueFromLeftTopSlider());
+            /* For Demo */
         }
 
         private void LeftTopSliderTouchGrid_MouseLeave(object sender, MouseEventArgs e)
@@ -226,7 +264,496 @@ namespace DayLightMachineController.View.MainWindowPages
                 return;
             }
 
+            /* For Demo */
             Console.WriteLine(GetValueFromLeftTopSlider());
+            /* For Demo */
         }
+
+        /* Left Mid Slider */
+
+        private void LeftMidParameterTouchBallMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            if (e.LeftButton != MouseButtonState.Pressed)
+            {
+                return;
+            }
+
+            Point position = e.GetPosition(this);
+
+            double newMarginForBall = (position.X - 300) * 2;
+
+            if (newMarginForBall < -460)
+            {
+                newMarginForBall = -460;
+            }
+            else if (newMarginForBall > 460)
+            {
+                newMarginForBall = 460;
+            }
+
+            LeftMidParameterTouchBall.Margin = new Thickness(newMarginForBall, 0, 0, 0);
+
+            double newPosiitonForForeground = position.X - 45;
+
+            if (newPosiitonForForeground < 0)
+            {
+                newPosiitonForForeground = 0;
+            }
+            else if (newPosiitonForForeground > 520)
+            {
+                newPosiitonForForeground = 520;
+            }
+
+            LeftMidSliderForeground.Width = newPosiitonForForeground;
+        }
+
+        private void SetValueForLeftMidSlider(int percentage)
+        {
+            if (percentage > 100 || percentage < 0)
+            {
+                Console.WriteLine("  ## SetValueForLeftMidSlider percentage is out of bounds.");
+                return;
+            }
+
+            double newMarginForBall = (percentage * 9.2) - 460;
+
+            if (newMarginForBall < -460)
+            {
+                newMarginForBall = -460;
+            }
+            else if (newMarginForBall > 460)
+            {
+                newMarginForBall = 460;
+            }
+
+            LeftMidParameterTouchBall.Margin = new Thickness(newMarginForBall, 0, 0, 0);
+
+            double newWidthForForeground = percentage * 5.2;
+
+            if (newWidthForForeground < 0)
+            {
+                newWidthForForeground = 0;
+            }
+            else if (newWidthForForeground > 520)
+            {
+                newWidthForForeground = 520;
+            }
+
+            LeftMidSliderForeground.Width = newWidthForForeground;
+        }
+
+        private double GetValueFromLeftMidSlider()
+        {
+            return (LeftMidSliderForeground.Width / 5.2);
+        }
+
+        private void LeftMidSliderTouchGrid_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            /* For Demo */
+            Console.WriteLine(GetValueFromLeftMidSlider());
+            /* For Demo */
+        }
+
+        private void LeftMidSliderTouchGrid_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton != MouseButtonState.Pressed)
+            {
+                return;
+            }
+
+            /* For Demo */
+            Console.WriteLine(GetValueFromLeftMidSlider());
+            /* For Demo */
+        }
+
+        /* Left Bottom Slider */
+
+        private void LeftBottomParameterTouchBallMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            if (e.LeftButton != MouseButtonState.Pressed)
+            {
+                return;
+            }
+
+            Point position = e.GetPosition(this);
+
+            double newMarginForBall = (position.X - 300) * 2;
+
+            if (newMarginForBall < -460)
+            {
+                newMarginForBall = -460;
+            }
+            else if (newMarginForBall > 460)
+            {
+                newMarginForBall = 460;
+            }
+
+            LeftBottomParameterTouchBall.Margin = new Thickness(newMarginForBall, 0, 0, 0);
+
+            double newPosiitonForForeground = position.X - 45;
+
+            if (newPosiitonForForeground < 0)
+            {
+                newPosiitonForForeground = 0;
+            }
+            else if (newPosiitonForForeground > 520)
+            {
+                newPosiitonForForeground = 520;
+            }
+
+            LeftBottomSliderForeground.Width = newPosiitonForForeground;
+        }
+
+        private void SetValueForLeftBottomSlider(int percentage)
+        {
+            if (percentage > 100 || percentage < 0)
+            {
+                Console.WriteLine("  ## SetValueForLeftBottomSlider percentage is out of bounds.");
+                return;
+            }
+
+            double newMarginForBall = (percentage * 9.2) - 460;
+
+            if (newMarginForBall < -460)
+            {
+                newMarginForBall = -460;
+            }
+            else if (newMarginForBall > 460)
+            {
+                newMarginForBall = 460;
+            }
+
+            LeftBottomParameterTouchBall.Margin = new Thickness(newMarginForBall, 0, 0, 0);
+
+            double newWidthForForeground = percentage * 5.2;
+
+            if (newWidthForForeground < 0)
+            {
+                newWidthForForeground = 0;
+            }
+            else if (newWidthForForeground > 520)
+            {
+                newWidthForForeground = 520;
+            }
+
+            LeftBottomSliderForeground.Width = newWidthForForeground;
+        }
+
+        private double GetValueFromLeftBottomSlider()
+        {
+            return (LeftBottomSliderForeground.Width / 5.2);
+        }
+
+        private void LeftBottomSliderTouchGrid_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            /* For Demo */
+            Console.WriteLine(GetValueFromLeftBottomSlider());
+            /* For Demo */
+        }
+
+        private void LeftBottomSliderTouchGrid_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton != MouseButtonState.Pressed)
+            {
+                return;
+            }
+
+            /* For Demo */
+            Console.WriteLine(GetValueFromLeftBottomSlider());
+            /* For Demo */
+        }
+
+        /* Right Top Slider */
+
+        private void RightTopParameterTouchBallMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            if (e.LeftButton != MouseButtonState.Pressed)
+            {
+                return;
+            }
+
+            Point position = e.GetPosition(this);
+
+            double newMarginForBall = (position.X - 900) * 2;
+
+            if (newMarginForBall < -460)
+            {
+                newMarginForBall = -460;
+            }
+            else if (newMarginForBall > 460)
+            {
+                newMarginForBall = 460;
+            }
+
+            RightTopParameterTouchBall.Margin = new Thickness(newMarginForBall, 0, 0, 0);
+
+            double newPosiitonForForeground = position.X - 645;
+
+            if (newPosiitonForForeground < 0)
+            {
+                newPosiitonForForeground = 0;
+            }
+            else if (newPosiitonForForeground > 520)
+            {
+                newPosiitonForForeground = 520;
+            }
+
+            RightTopSliderForeground.Width = newPosiitonForForeground;
+        }
+
+        private void SetValueForRightTopSlider(int percentage)
+        {
+            if (percentage > 100 || percentage < 0)
+            {
+                Console.WriteLine("  ## SetValueForRightTopSlider percentage is out of bounds.");
+                return;
+            }
+
+            double newMarginForBall = (percentage * 9.2) - 460;
+
+            if (newMarginForBall < -460)
+            {
+                newMarginForBall = -460;
+            }
+            else if (newMarginForBall > 460)
+            {
+                newMarginForBall = 460;
+            }
+
+            RightTopParameterTouchBall.Margin = new Thickness(newMarginForBall, 0, 0, 0);
+
+            double newWidthForForeground = percentage * 5.2;
+
+            if (newWidthForForeground < 0)
+            {
+                newWidthForForeground = 0;
+            }
+            else if (newWidthForForeground > 520)
+            {
+                newWidthForForeground = 520;
+            }
+
+            RightTopSliderForeground.Width = newWidthForForeground;
+        }
+
+        private double GetValueFromRightTopSlider()
+        {
+            return (RightTopSliderForeground.Width / 5.2);
+        }
+
+        private void RightTopSliderTouchGrid_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            /* For Demo */
+            Console.WriteLine(GetValueFromRightTopSlider());
+            /* For Demo */
+        }
+
+        private void RightTopSliderTouchGrid_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton != MouseButtonState.Pressed)
+            {
+                return;
+            }
+
+            /* For Demo */
+            Console.WriteLine(GetValueFromRightTopSlider());
+            /* For Demo */
+        }
+
+        /* Right Mid Slider */
+
+        private void RightMidParameterTouchBallMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            if (e.LeftButton != MouseButtonState.Pressed)
+            {
+                return;
+            }
+
+            Point position = e.GetPosition(this);
+
+            double newMarginForBall = (position.X - 900) * 2;
+
+            if (newMarginForBall < -460)
+            {
+                newMarginForBall = -460;
+            }
+            else if (newMarginForBall > 460)
+            {
+                newMarginForBall = 460;
+            }
+
+            RightMidParameterTouchBall.Margin = new Thickness(newMarginForBall, 0, 0, 0);
+
+            double newPosiitonForForeground = position.X - 645;
+
+            if (newPosiitonForForeground < 0)
+            {
+                newPosiitonForForeground = 0;
+            }
+            else if (newPosiitonForForeground > 520)
+            {
+                newPosiitonForForeground = 520;
+            }
+
+            RightMidSliderForeground.Width = newPosiitonForForeground;
+        }
+
+        private void SetValueForRightMidSlider(int percentage)
+        {
+            if (percentage > 100 || percentage < 0)
+            {
+                Console.WriteLine("  ## SetValueForRightMidSlider percentage is out of bounds.");
+                return;
+            }
+
+            double newMarginForBall = (percentage * 9.2) - 460;
+
+            if (newMarginForBall < -460)
+            {
+                newMarginForBall = -460;
+            }
+            else if (newMarginForBall > 460)
+            {
+                newMarginForBall = 460;
+            }
+
+            RightMidParameterTouchBall.Margin = new Thickness(newMarginForBall, 0, 0, 0);
+
+            double newWidthForForeground = percentage * 5.2;
+
+            if (newWidthForForeground < 0)
+            {
+                newWidthForForeground = 0;
+            }
+            else if (newWidthForForeground > 520)
+            {
+                newWidthForForeground = 520;
+            }
+
+            RightMidSliderForeground.Width = newWidthForForeground;
+        }
+
+        private double GetValueFromRightMidSlider()
+        {
+            return (RightMidSliderForeground.Width / 5.2);
+        }
+
+        private void RightMidSliderTouchGrid_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            /* For Demo */
+            Console.WriteLine(GetValueFromRightMidSlider());
+            /* For Demo */
+        }
+
+        private void RightMidSliderTouchGrid_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton != MouseButtonState.Pressed)
+            {
+                return;
+            }
+
+            /* For Demo */
+            Console.WriteLine(GetValueFromRightMidSlider());
+            /* For Demo */
+        }
+
+        /* Right Bottom Slider */
+
+        private void RightBottomParameterTouchBallMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            if (e.LeftButton != MouseButtonState.Pressed)
+            {
+                return;
+            }
+
+            Point position = e.GetPosition(this);
+
+            double newMarginForBall = (position.X - 900) * 2;
+
+            if (newMarginForBall < -460)
+            {
+                newMarginForBall = -460;
+            }
+            else if (newMarginForBall > 460)
+            {
+                newMarginForBall = 460;
+            }
+
+            RightBottomParameterTouchBall.Margin = new Thickness(newMarginForBall, 0, 0, 0);
+
+            double newPosiitonForForeground = position.X - 645;
+
+            if (newPosiitonForForeground < 0)
+            {
+                newPosiitonForForeground = 0;
+            }
+            else if (newPosiitonForForeground > 520)
+            {
+                newPosiitonForForeground = 520;
+            }
+
+            RightBottomSliderForeground.Width = newPosiitonForForeground;
+        }
+
+        private void SetValueForRightBottomSlider(int percentage)
+        {
+            if (percentage > 100 || percentage < 0)
+            {
+                Console.WriteLine("  ## SetValueForRightBottomSlider percentage is out of bounds.");
+                return;
+            }
+
+            double newMarginForBall = (percentage * 9.2) - 460;
+
+            if (newMarginForBall < -460)
+            {
+                newMarginForBall = -460;
+            }
+            else if (newMarginForBall > 460)
+            {
+                newMarginForBall = 460;
+            }
+
+            RightBottomParameterTouchBall.Margin = new Thickness(newMarginForBall, 0, 0, 0);
+
+            double newWidthForForeground = percentage * 5.2;
+
+            if (newWidthForForeground < 0)
+            {
+                newWidthForForeground = 0;
+            }
+            else if (newWidthForForeground > 520)
+            {
+                newWidthForForeground = 520;
+            }
+
+            RightBottomSliderForeground.Width = newWidthForForeground;
+        }
+
+        private double GetValueFromRightBottomSlider()
+        {
+            return (RightBottomSliderForeground.Width / 5.2);
+        }
+
+        private void RightBottomSliderTouchGrid_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            /* For Demo */
+            Console.WriteLine(GetValueFromRightBottomSlider());
+            /* For Demo */
+        }
+
+        private void RightBottomSliderTouchGrid_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton != MouseButtonState.Pressed)
+            {
+                return;
+            }
+
+            /* For Demo */
+            Console.WriteLine(GetValueFromRightBottomSlider());
+            /* For Demo */
+        }
+
+        
     }
 }
