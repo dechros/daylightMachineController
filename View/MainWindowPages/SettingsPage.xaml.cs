@@ -48,10 +48,22 @@ namespace DayLightMachineController.View.MainWindowPages
 
         private void TopGrid_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            UnclickAllTopButtons();
+            Grid clickedButton = (Grid)sender;
             SetRandomValuesToSliders();
 
-            Grid clickedButton = (Grid)sender;
+            if (clickedButton.Name == "SaveButtonGrid")
+            {
+                ClickSaveButton();
+                return;
+            }
+            else if (clickedButton.Name == "ResetButtonGrid")
+            {
+                ClickResetButton();
+                return;
+            }
+
+            UnclickAllTopButtons();
+
             if (clickedButton.Name == "LeftTrackButtonGrid")
             {
                 ClickLeftTrackButton();
@@ -96,6 +108,16 @@ namespace DayLightMachineController.View.MainWindowPages
             RightTopSliderLabel.Content = "Information Data Interval";
             RightMidSliderLabel.Content = "Engine RPM Filter Strength";
             RightBottomSliderLabel.Content = "Lost Connection Interval";
+        }
+
+        private void ClickSaveButton()
+        {
+
+        }
+
+        private void ClickResetButton()
+        {
+
         }
 
         private void ClickLeftTrackButton()
@@ -499,7 +521,7 @@ namespace DayLightMachineController.View.MainWindowPages
 
             RightTopParameterTouchBall.Margin = new Thickness(newMarginForBall, 0, 0, 0);
 
-            double newPosiitonForForeground = position.X - 645;
+            double newPosiitonForForeground = position.X - 640;
 
             if (newPosiitonForForeground < 0)
             {
@@ -600,7 +622,7 @@ namespace DayLightMachineController.View.MainWindowPages
 
             RightMidParameterTouchBall.Margin = new Thickness(newMarginForBall, 0, 0, 0);
 
-            double newPosiitonForForeground = position.X - 645;
+            double newPosiitonForForeground = position.X - 640;
 
             if (newPosiitonForForeground < 0)
             {
@@ -701,7 +723,7 @@ namespace DayLightMachineController.View.MainWindowPages
 
             RightBottomParameterTouchBall.Margin = new Thickness(newMarginForBall, 0, 0, 0);
 
-            double newPosiitonForForeground = position.X - 645;
+            double newPosiitonForForeground = position.X - 640;
 
             if (newPosiitonForForeground < 0)
             {
@@ -777,7 +799,5 @@ namespace DayLightMachineController.View.MainWindowPages
             Console.WriteLine(GetValueFromRightBottomSlider());
             /* For Demo */
         }
-
-        
     }
 }
